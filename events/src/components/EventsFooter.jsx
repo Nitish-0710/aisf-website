@@ -80,7 +80,7 @@ function EventsFooter() {
 
             <div className="footer-people">
               <div>
-                <b>Om Kumar Garg</b>
+                <b>Samarth Mahajan</b>
                 <span>President</span>
                 <a href="tel:+918305261866">
                   +91 83052 61866
@@ -113,7 +113,7 @@ function EventsFooter() {
 
               <div>
                 <b>Shreya Ranjan</b>
-                <span>Technical Head</span>
+                <span>Technical Secretary</span>
                 <a href="mailto:samir.shreya24@vit.edu">
                   samir.shreya24@vit.edu
                 </a>

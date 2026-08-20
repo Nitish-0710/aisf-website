@@ -28,7 +28,7 @@ function EventSection({
 
           <p>{description}</p>
 
-          <a href="#" className="event-button">
+          <a href="../code-apex-2/index.html" className="event-button">
             VIEW EVENT
             <span>↗</span>
           </a>

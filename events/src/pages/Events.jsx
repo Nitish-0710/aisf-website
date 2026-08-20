@@ -103,11 +103,11 @@ function Events() {
           theme="theme-red"
           reverse
           images={[
-            "/images/events/ca2/VCA2.1.jpeg",
-            "/images/events/ca2/VCA2.2.jpeg",
-            "/images/events/ca2/VCA2.3.jpeg",
-            "/images/events/ca2/VCA2.4.jpeg",
-            "/images/events/ca2/VCA2.5.jpeg",
+            "/images/events/ca-2/VCA2.1.jpeg",
+            "/images/events/ca-2/VCA2.2.jpeg",
+            "/images/events/ca-2/VCA2.3.jpeg",
+            "/images/events/ca-2/VCA2.4.jpeg",
+            "/images/events/ca-2/VCA2.5.jpeg",
           ]}
           description="Code Apex 2.0 continued the journey with a larger and more intense hackathon experience, bringing together creativity, technology and collaboration under one challenge."
         />
