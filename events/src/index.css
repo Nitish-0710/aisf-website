@@ -26,6 +26,7 @@ a {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+    isolation: isolate;
 
   --blue-r: 37;
   --blue-g: 99;
@@ -1244,6 +1245,35 @@ html {
 
   transition: background 0.1s linear;
 }
+
+/* =========================================================
+   3D HOLO SHAPESHIFTER BACKGROUND
+========================================================= */
+
+.events-3d-background {
+  position: fixed;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+.events-3d-background canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Mobile: keep the model more subtle */
+@media (max-width: 768px) {
+  .events-3d-background {
+    opacity: 0.7;
+  }
+}
+
 
 /* Keep event sections transparent so the global transition is visible */
 .events-page .event-section {
