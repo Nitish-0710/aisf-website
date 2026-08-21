@@ -56,8 +56,8 @@ function Events() {
       <div className="events-3d-background">
         <Canvas
           camera={{ position: [0, 0, 8], fov: 50 }}
-          dpr={[1, 1.5]}
-          gl={{ antialias: true, alpha: true }}
+          dpr={[1, 1]}
+          gl={{ antialias: false, alpha: true }}
         >
           <HoloModel />
         </Canvas>
