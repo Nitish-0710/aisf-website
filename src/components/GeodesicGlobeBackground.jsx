@@ -149,8 +149,9 @@ export default function GeodesicGlobeBackground() {
         requestAnimationFrame(() => {
           scrollY = window.scrollY;
           const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+          // Pure linear progression [0.0 to 1.0] from page top to page bottom
           const rawProgress = Math.min(1, Math.max(0, scrollY / maxScroll));
-          targetExpansion = Math.min(1, Math.pow(rawProgress, 0.7) * 1.4);
+          targetExpansion = rawProgress;
           isTicking = false;
         });
         isTicking = true;
@@ -200,8 +201,8 @@ export default function GeodesicGlobeBackground() {
       // Continuous ambient rotation
       globeGroup.rotation.y += 0.0025;
 
-      // Smooth scroll expansion
-      currentExpansion += (targetExpansion - currentExpansion) * 0.12;
+      // Smooth linear scroll expansion towards page end
+      currentExpansion += (targetExpansion - currentExpansion) * 0.1;
 
       // Opacity calculation based on scroll
       const fadeProgress = Math.min(1, Math.max(0, (scrollY - 100) / 300));
@@ -212,16 +213,16 @@ export default function GeodesicGlobeBackground() {
       outerLineMaterial.opacity = 0.35 * overallOpacity;
       dustMaterial.opacity = 0.6 * overallOpacity;
 
-      // Expansion scaling
-      const innerScale = 1.0 + currentExpansion * 4.5;
+      // Moderate linear scaling reaching maximum smoothly at the end of the page
+      const innerScale = 1.0 + currentExpansion * 1.7;
       lineMesh.scale.set(innerScale, innerScale, innerScale);
       pointsMesh.scale.set(innerScale, innerScale, innerScale);
 
-      const outerScale = 1.0 + currentExpansion * 6.0;
+      const outerScale = 1.0 + currentExpansion * 2.3;
       outerLineMesh.scale.set(outerScale, outerScale, outerScale);
 
-      // Dynamic camera zoom
-      camera.position.z = 9.0 - currentExpansion * 2.8;
+      // Gentle camera depth adjustment
+      camera.position.z = 9.0 - currentExpansion * 1.5;
 
       outerLineMesh.rotation.y -= 0.0012;
       dustMesh.rotation.y -= 0.0008;
