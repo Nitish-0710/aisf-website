@@ -2,9 +2,9 @@ import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-const COUNT = 400;
+const COUNT = 300;
 const RADIUS = 1;
-const CONNECTION_THRESHOLD = 0.26;
+const CONNECTION_THRESHOLD = 0.30;
 
 function EventBackgroundModel() {
   const groupRef = useRef();
@@ -131,10 +131,8 @@ function EventBackgroundModel() {
     Animate rotation and subtle connection pulse.
     ---------------------------------------------------------
   */
-  useFrame((state) => {
+  useFrame((state, delta) => {
     if (!groupRef.current) return;
-
-    const delta = state.clock.getDelta();
 
     /*
       -------------------------------------------------------
@@ -180,12 +178,12 @@ function EventBackgroundModel() {
 
     /*
       Initial size = 1
-      Final size   = 5
+      Final size   = 2.2
     */
 
     const targetScale = THREE.MathUtils.lerp(
       1,
-      5,
+      2.2,
       zoomProgress
     );
 
