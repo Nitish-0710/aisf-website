@@ -9,7 +9,7 @@ function EventHero() {
 
     const updateProgress = () => {
       const value = Math.min(
-        Math.max(window.scrollY / (heroHeight * 0.85), 0),
+        Math.max(window.scrollY / (heroHeight ), 0),
         1
       );
       setProgress(value);
@@ -77,7 +77,7 @@ function EventHero() {
                     )
                     rotate(${letter.rotate * multiplier}deg)
                   `,
-                  opacity: 1 - progress * 0.65,
+                  opacity: 1 - progress ,
                 }}
               >
                 {letter.char}

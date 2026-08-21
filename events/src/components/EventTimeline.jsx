@@ -2,13 +2,15 @@ function EventTimeline() {
   const events = [
     {
       number: "01",
-      name: "Code Apex 1.0",
-      date: "18 SEP 2025",
+      name: "Code Apex 2.0",
+      date: "16 MAR 2026",
+      target: "code-apex-2",
     },
     {
       number: "02",
-      name: "Code Apex 2.0",
-      date: "16 MAR 2026",
+      name: "Code Apex 1.0",
+      date: "18 SEP 2025",
+      target: "code-apex-1",
     },
   ];
 
@@ -22,11 +24,13 @@ function EventTimeline() {
       <div className="timeline-track">
         {events.map((event) => (
           <a
-  href={`#code-apex-${event.number === "01" ? "1" : "2"}`}
-  className="timeline-event"
-  key={event.number}
->
-            <div className="timeline-number">{event.number}</div>
+            href={`#${event.target}`}
+            className="timeline-event"
+            key={event.number}
+          >
+            <div className="timeline-number">
+              {event.number}
+            </div>
 
             <div className="timeline-dot" />
 
