@@ -22,6 +22,7 @@ import getInvolvedImg1 from "./assets/AISF_GetInvolved.jpeg";
 import getInvolvedImg2 from "./assets/AISF_GetInvolved_2.jpg";
 import getInvolvedImg3 from "./assets/AISF_GetInvolved_3.jpg";
 import getInvolvedImg4 from "./assets/AISF_GetInvolved4.jpg";
+import GeodesicGlobeBackground from "./components/GeodesicGlobeBackground";
 
 // Clean inline social icons
 const GithubIcon = ({ size = 15 }) => (
@@ -97,23 +98,36 @@ export default function App() {
 
   useEffect(() => {
     updatePositions();
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
+    let isTicking = false;
 
-      const sections = ["home", "about", "pillars", "community", "contact"];
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 250 && rect.bottom >= 250) {
-            setActiveSection(section);
-            break;
+    const handleScroll = () => {
+      if (!isTicking) {
+        window.requestAnimationFrame(() => {
+          const currentScroll = window.scrollY;
+          setScrollY(currentScroll);
+
+          const sections = ["home", "about", "pillars", "community", "contact"];
+          for (const section of sections) {
+            const el = document.getElementById(section);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              if (rect.top <= 250 && rect.bottom >= 250) {
+                setActiveSection(section);
+                break;
+              }
+            }
           }
-        }
+          isTicking = false;
+        });
+        isTicking = true;
       }
     };
 
-    const handleResize = () => updatePositions();
+    let resizeTimer;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(updatePositions, 100);
+    };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleResize);
@@ -125,6 +139,7 @@ export default function App() {
 
     return () => {
       clearTimeout(timer);
+      clearTimeout(resizeTimer);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
@@ -180,6 +195,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#05070A] text-[#F8FAFC] font-body selection:bg-[#2563EB] selection:text-white relative overflow-hidden">
+      
+      {/* Non-intrusive 3D Geodesic Node & Constellation Background Layer */}
+      <GeodesicGlobeBackground />
       
       {/* ========================================================= */}
       {/* 1. STICKY TOP NAVBAR (Dynamic Glass Pill Container) */}
@@ -404,7 +422,7 @@ export default function App() {
       {/* ========================================================= */}
       {/* 4. SECTION 01 — WHO WE ARE & MISSION (Text + Image) */}
       {/* ========================================================= */}
-      <section id="about" className="relative py-24 sm:py-32 px-6 sm:px-12 lg:px-20 z-10 bg-[#05070A] border-t border-white/10">
+      <section id="about" className="relative py-24 sm:py-32 px-6 sm:px-12 lg:px-20 z-10 bg-[#05070A]/75 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
@@ -425,9 +443,9 @@ export default function App() {
                 AISF is the official AI departmental club of VIT Pune. We organize workshops, hackathons, speaker sessions, and research initiatives to foster a culture of innovation and technical excellence.
               </p>
 
-              <p className="text-[#64748B] text-sm sm:text-base leading-relaxed">
+              {/* <p className="text-[#64748B] text-sm sm:text-base leading-relaxed">
                 Whether it's building intelligent AI systems, architecting web applications, or designing user-centric interfaces, we prioritize hands-on execution and peer learning above all else.
-              </p>
+              </p> */}
 
               <div className="pt-4 grid sm:grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl glass-card">
@@ -458,6 +476,8 @@ export default function App() {
                 <img
                   src={whoWeAreImg}
                   alt="AISF Official Cohort & Core Team"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-[420px] object-cover object-center transition-all duration-700 scale-100 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#05070A] via-transparent to-transparent opacity-80" />
@@ -484,7 +504,7 @@ export default function App() {
       {/* ========================================================= */}
       {/* 5. SECTION 02 — WHAT WE DO / CORE PILLARS (Interactive Cards) */}
       {/* ========================================================= */}
-      <section id="pillars" className="relative py-24 sm:py-32 px-6 sm:px-12 lg:px-20 z-10 bg-[#080B10] border-y border-white/10">
+      <section id="pillars" className="relative py-24 sm:py-32 px-6 sm:px-12 lg:px-20 z-10 bg-[#080B10]/75 border-y border-white/10">
         <div className="max-w-6xl mx-auto">
           
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -570,7 +590,7 @@ export default function App() {
       {/* ========================================================= */}
       {/* 6. SECTION 03 — GET INVOLVED & GALLERY (Text + Media Grid) */}
       {/* ========================================================= */}
-      <section id="community" className="relative py-24 sm:py-32 px-6 sm:px-12 lg:px-20 z-10 bg-[#05070A]">
+      <section id="community" className="relative py-24 sm:py-32 px-6 sm:px-12 lg:px-20 z-10 bg-[#05070A]/75">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
@@ -581,6 +601,8 @@ export default function App() {
                   <img
                     src={getInvolvedImg1}
                     alt="AISF Drone Bootcamp"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center transition-all duration-500 scale-100 group-hover:scale-105"
                   />
                 </div>
@@ -588,6 +610,8 @@ export default function App() {
                   <img
                     src={getInvolvedImg2}
                     alt="Hardware & Drone Control Lab"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center transition-all duration-500 scale-100 group-hover:scale-105"
                   />
                 </div>
@@ -598,6 +622,8 @@ export default function App() {
                   <img
                     src={getInvolvedImg3}
                     alt="Keynote Tech Session & Stage Presentation"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center transition-all duration-500 scale-100 group-hover:scale-105"
                   />
                 </div>
@@ -605,6 +631,8 @@ export default function App() {
                   <img
                     src={getInvolvedImg4}
                     alt="AISF Campus Team & Community"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center transition-all duration-500 scale-100 group-hover:scale-105"
                   />
                 </div>
@@ -657,7 +685,7 @@ export default function App() {
       {/* ========================================================= */}
       {/* 7. FOOTER (Matching Reference Layout & Structure) */}
       {/* ========================================================= */}
-      <footer id="contact" className="relative bg-[#05070A] border-t border-white/10 pt-16 pb-12 px-6 sm:px-12 lg:px-20 z-10">
+      <footer id="contact" className="relative bg-[#05070A]/85 border-t border-white/10 pt-16 pb-12 px-6 sm:px-12 lg:px-20 z-10">
         <div className="max-w-6xl mx-auto">
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-white/10">
