@@ -1,23 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function EventHero() {
   const [progress, setProgress] = useState(0);
+  const rafRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const heroHeight = window.innerHeight;
+    const heroHeight = window.innerHeight;
 
+    const updateProgress = () => {
       const value = Math.min(
         Math.max(window.scrollY / (heroHeight * 0.85), 0),
         1
       );
-
       setProgress(value);
+      rafRef.current = null;
+    };
+
+    const handleScroll = () => {
+      if (rafRef.current === null) {
+        rafRef.current = requestAnimationFrame(updateProgress);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   const letters = [

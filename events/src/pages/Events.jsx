@@ -1,82 +1,73 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import EventsNavbar from "../components/EventsNavbar";
 import EventHero from "../components/EventHero";
 import EventTimeline from "../components/EventTimeline";
 import EventSection from "../components/EventSection";
 import EventsFooter from "../components/EventsFooter";
+import { Canvas } from "@react-three/fiber";
+import HoloModel from "../components/EventBackgroundModel";
 
 function Events() {
-  const [themeProgress, setThemeProgress] = useState(0);
+  const mainRef = useRef(null);
+  const rafRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const eventStart = 0.30;
+    const eventEnd = 0.90;
+
+    const updateTheme = () => {
       const maxScroll =
         document.documentElement.scrollHeight - window.innerHeight;
 
-      if (maxScroll <= 0) return;
+      if (maxScroll > 0 && mainRef.current) {
+        const progress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
+        const normalized = Math.min(
+          Math.max((progress - eventStart) / (eventEnd - eventStart), 0),
+          1
+        );
 
-      const progress = Math.min(
-        Math.max(window.scrollY / maxScroll, 0),
-        1
-      );
-
-      setThemeProgress(progress);
+        // Written straight to the DOM — no React re-render.
+        mainRef.current.style.setProperty("--theme-progress", normalized);
+        mainRef.current.style.setProperty("--theme-mix", normalized);
+      }
+      rafRef.current = null;
     };
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
+    const handleScroll = () => {
+      if (rafRef.current === null) {
+        rafRef.current = requestAnimationFrame(updateTheme);
+      }
+    };
 
-    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    updateTheme();
 
-    return () =>
+    return () => {
       window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
-  /*
-    0 = blue
-    1 = red
-
-    We only allow the global theme to start changing
-    after the hero/timeline area.
-  */
-
-  const eventStart = 0.30;
-  const eventEnd = 0.90;
-
-  const normalized = Math.min(
-    Math.max(
-      (themeProgress - eventStart) /
-        (eventEnd - eventStart),
-      0
-    ),
-    1
-  );
-
   return (
-    <main
-      className="events-page"
-      style={{
-        "--theme-progress": normalized,
-      }}
-    >
-      <div
-        className="theme-background"
-        style={{
-          "--theme-mix": normalized,
-        }}
-      />
+    <main ref={mainRef} className="events-page">
+      <div className="theme-background" />
+
+      <div className="events-3d-background">
+        <Canvas
+          camera={{ position: [0, 0, 8], fov: 50 }}
+          dpr={[1, 1.5]}
+          gl={{ antialias: true, alpha: true }}
+        >
+          <HoloModel />
+        </Canvas>
+      </div>
 
       <EventsNavbar />
-
       <EventHero />
-
       <EventTimeline />
 
       <div id="events">
-
-        {/* CODE APEX 1.0 */}
         <EventSection
           id="code-apex-1"
           className="event-section event-theme-blue"
@@ -93,7 +84,6 @@ function Events() {
           description="Code Apex 1.0 brought together students, developers and technology enthusiasts for a high-energy experience focused on problem solving, innovation and building with technology."
         />
 
-        {/* CODE APEX 2.0 */}
         <EventSection
           id="code-apex-2"
           className="event-section event-theme-red"
@@ -111,7 +101,6 @@ function Events() {
           ]}
           description="Code Apex 2.0 continued the journey with a larger and more intense hackathon experience, bringing together creativity, technology and collaboration under one challenge."
         />
-
       </div>
 
       <EventsFooter />
