@@ -180,7 +180,7 @@ export default function App() {
 
   const navItems = [
     { name: "Home", href: "#home" },
-    { name: "Gallery", href: "#community" },
+    { name: "Events", href: "#community" },
     { name: "Team", href: "#about" },
     { name: "Contact Us", href: "#contact" },
   ];
