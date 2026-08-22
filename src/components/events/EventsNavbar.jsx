@@ -9,7 +9,7 @@ function EventsNavbar() {
     { name: "Home", href: "/#home" },
     { name: "Events", href: "/events" },
     { name: "Team", href: "/team" },
-    { name: "Contact Us", href: "/#contact" },
+    { name: "Contact Us", href: "#contact" },
   ];
 
   return (

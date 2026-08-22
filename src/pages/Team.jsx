@@ -7,11 +7,31 @@ import {
   Phone,
   FilterX,
   ExternalLink,
-  ChevronDown
+  ChevronDown,
+  MapPin,
+  ChevronUp
 } from "lucide-react";
 import * as THREE from "three";
 import heroBgVideo from "../assets/bg_video_AISF_cut.mp4";
+import aisfLogoImg from "../assets/AISF_Logo_NoBG.png";
+import NeuralGlobeBackground from "../components/NeuralGlobeBackground";
 import "../team.css";
+
+const LinkedinIcon = ({ size = 15 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" r="2" />
+  </svg>
+);
+
+const InstagramIcon = ({ size = 15 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
 
 // ============================================================================
 // COMPLETE AISF TEAM DIRECTORY DATA MODEL
@@ -231,210 +251,7 @@ export const ALL_DIRECTORY_MEMBERS = [
   ...SECRETARY_MEMBERS
 ];
 
-// ============================================================================
-// 3D NEURAL SPHERE BACKGROUND CANVAS COMPONENT
-// ============================================================================
-function Team3DBackground() {
-  const canvasRef = useRef(null);
-  const wrapRef = useRef(null);
 
-  useEffect(() => {
-    if (!canvasRef.current || typeof THREE === "undefined") return;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.set(0, 0, 8);
-
-    const renderer = new THREE.WebGLRenderer({
-      canvas: canvasRef.current,
-      alpha: true,
-      antialias: false,
-      powerPreference: 'high-performance',
-      depth: false,
-      stencil: false
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-
-    const group = new THREE.Group();
-    group.position.set(0, 0, 0);
-    group.scale.setScalar(2.6);
-    scene.add(group);
-
-    const COUNT = 350;
-    const RADIUS = 1.0;
-    const CONNECTION_THRESHOLD = 0.26;
-    const goldenAngle = 2.399963;
-
-    const positions = new Float32Array(COUNT * 3);
-    for (let i = 0; i < COUNT; i++) {
-      const t = i / (COUNT - 1);
-      const theta = i * goldenAngle;
-      const phi = Math.acos(1 - 2 * t);
-      positions[i * 3] = RADIUS * Math.sin(phi) * Math.cos(theta);
-      positions[i * 3 + 1] = RADIUS * Math.sin(phi) * Math.sin(theta);
-      positions[i * 3 + 2] = RADIUS * Math.cos(phi);
-    }
-
-    const connections = [];
-    for (let i = 0; i < COUNT; i++) {
-      for (let j = i + 1; j < COUNT; j++) {
-        const dx = positions[i * 3] - positions[j * 3];
-        const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
-        const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
-        const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
-        if (distance < CONNECTION_THRESHOLD) {
-          connections.push(
-            positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2],
-            positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]
-          );
-        }
-      }
-    }
-    const connectionPositions = new Float32Array(connections);
-
-    const COLOR_CYAN = new THREE.Color("#00e5ff");
-    const COLOR_RED = new THREE.Color("#ff3344");
-    const COLOR_BLUE = new THREE.Color("#2f7dff");
-
-    const currentColor = COLOR_CYAN.clone();
-    const targetColor = COLOR_CYAN.clone();
-
-    const nodeGeo = new THREE.BufferGeometry();
-    nodeGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const nodeMat = new THREE.PointsMaterial({
-      color: COLOR_CYAN,
-      size: 0.055,
-      transparent: true,
-      opacity: 0.95,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending
-    });
-    const nodePoints = new THREE.Points(nodeGeo, nodeMat);
-    group.add(nodePoints);
-
-    const lineGeo = new THREE.BufferGeometry();
-    lineGeo.setAttribute('position', new THREE.BufferAttribute(connectionPositions, 3));
-    const lineMat = new THREE.LineBasicMaterial({
-      color: COLOR_CYAN,
-      transparent: true,
-      opacity: 0.24,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending
-    });
-    const lineSegments = new THREE.LineSegments(lineGeo, lineMat);
-    group.add(lineSegments);
-
-    let targetRotationY = 0;
-    let targetScale = 2.6;
-    let currentScale = 2.6;
-    let lastScrollY = window.scrollY || window.pageYOffset;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY || window.pageYOffset;
-      const delta = currentScrollY - lastScrollY;
-      targetRotationY += delta * 0.005;
-      lastScrollY = currentScrollY;
-
-      const hero = document.querySelector('.team-hero');
-      const heroHeight = hero ? hero.offsetHeight : window.innerHeight;
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-
-      const fadeStart = heroHeight * 0.25;
-      const fadeEnd = heroHeight * 0.75;
-      let opacity = 0;
-      if (currentScrollY > fadeStart) {
-        opacity = Math.min(1, (currentScrollY - fadeStart) / (fadeEnd - fadeStart));
-      }
-      if (wrapRef.current) {
-        wrapRef.current.style.opacity = opacity.toFixed(3);
-      }
-
-      const zoomProgress = THREE.MathUtils.clamp(
-        (currentScrollY - fadeStart) / Math.max(1, maxScroll - fadeStart),
-        0, 1
-      );
-      targetScale = THREE.MathUtils.lerp(2.6, 5.5, zoomProgress);
-
-      const switchLine = window.innerHeight * 0.55;
-      const execSection = document.getElementById('executiveSection');
-      const secSection = document.getElementById('secretariesSection');
-      const recSection = document.getElementById('joinTeam');
-
-      let activeColor = COLOR_CYAN;
-      if (execSection && execSection.getBoundingClientRect().top <= switchLine) {
-        activeColor = COLOR_RED;
-      }
-      if (secSection && secSection.getBoundingClientRect().top <= switchLine) {
-        activeColor = COLOR_BLUE;
-      }
-      if (recSection && recSection.getBoundingClientRect().top <= switchLine) {
-        activeColor = COLOR_CYAN;
-      }
-      targetColor.copy(activeColor);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    const onResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-    window.addEventListener('resize', onResize);
-
-    let clock = new THREE.Clock();
-    let animId;
-    let isVisible = true;
-
-    const handleVisibility = () => {
-      isVisible = !document.hidden;
-    };
-    document.addEventListener("visibilitychange", handleVisibility);
-
-    const animate = () => {
-      animId = requestAnimationFrame(animate);
-
-      if (!isVisible) return;
-
-      const delta = Math.min(clock.getDelta(), 0.1);
-      const elapsedTime = clock.getElapsedTime();
-
-      targetRotationY += delta * 0.12;
-      group.rotation.y = THREE.MathUtils.lerp(group.rotation.y, targetRotationY, 0.08);
-
-      currentScale = THREE.MathUtils.lerp(currentScale, targetScale, 0.08);
-      group.scale.setScalar(currentScale);
-
-      currentColor.lerp(targetColor, 0.05);
-      nodeMat.color.copy(currentColor);
-      lineMat.color.copy(currentColor);
-      lineMat.opacity = 0.2 + 0.05 * Math.sin(elapsedTime * 0.8);
-
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    return () => {
-      cancelAnimationFrame(animId);
-      document.removeEventListener("visibilitychange", handleVisibility);
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', onResize);
-      renderer.dispose();
-      nodeGeo.dispose();
-      lineGeo.dispose();
-      nodeMat.dispose();
-      lineMat.dispose();
-    };
-  }, []);
-
-  return (
-    <div ref={wrapRef} className="team-3d-bg-wrap">
-      <canvas ref={canvasRef} className="holo-canvas-bg" />
-    </div>
-  );
-}
 
 // ============================================================================
 // MAIN TEAM DIRECTORY PAGE COMPONENT
@@ -491,8 +308,8 @@ export default function Team() {
   return (
     <div className="team-page-wrapper bg-[#030408] text-[#f0f6fc] min-h-screen relative font-sans selection:bg-[#00d2ff] selection:text-black">
       
-      {/* 3D Background WebGL Canvas */}
-      <Team3DBackground />
+      {/* 3D Neural Sphere Background Layer */}
+      <NeuralGlobeBackground />
 
       {/* Floating Header Navbar */}
       <header className="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
@@ -511,7 +328,7 @@ export default function Team() {
             <a href="/team" className="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-full bg-[#00d2ff]/15 text-[#00d2ff] border border-[#00d2ff]/30">
               Team
             </a>
-            <a href="/#contact" className="ml-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-xs sm:text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1.5">
+            <a href="#contact" className="ml-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-xs sm:text-sm px-4 py-1.5 rounded-full transition-colors flex items-center gap-1.5">
               Contact Us <ArrowRight size={13} />
             </a>
           </div>
@@ -868,18 +685,164 @@ export default function Team() {
         </div>
       )}
 
-      {/* Footer */}
-      <footer className="relative bg-[#030408] border-t border-white/10 pt-16 pb-12 px-6 sm:px-12 lg:px-20 z-20">
+      {/* ========================================================= */}
+      {/* FOOTER (Matching Home Page Layout & Structure) */}
+      {/* ========================================================= */}
+      <footer id="contact" className="relative bg-[#05070A]/85 border-t border-white/10 pt-16 pb-12 px-6 sm:px-12 lg:px-20 z-20">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748B] font-mono">
-            <p>© 2025 AISF VIT Pune. All rights reserved.</p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-white/10">
+            
+            {/* Column 1: Logo, Tagline & Embedded Google Maps */}
+            <div className="md:col-span-5 space-y-4">
+              <div className="flex items-center gap-2">
+                <img
+                  src={aisfLogoImg}
+                  alt="AISF Logo"
+                  className="h-8 w-auto object-contain bg-transparent"
+                />
+              </div>
+              <p className="text-[#94A3B8] text-sm leading-relaxed max-w-sm font-normal">
+                Fostering innovation, learning, and collaboration in AI and technology.
+              </p>
+
+              {/* Functional Google Maps Card */}
+              <div className="relative mt-5 rounded-xl overflow-hidden border border-white/10 shadow-lg bg-[#030406] w-full max-w-[340px] h-[190px] group">
+                <iframe
+                  title="VIT Pune Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.4419999786675!2d73.86566817595514!3d18.46362697091535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ea950f616219%3A0x321bdae2ca9f083a!2sVishwakarma%20Institute%20of%20Technology%20(VIT)!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  className="w-full h-full border-0 filter grayscale contrast-125 opacity-90 group-hover:filter-none group-hover:opacity-100 transition-all duration-300"
+                  loading="lazy"
+                  allowFullScreen=""
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <a
+                  href="https://maps.google.com/?q=Vishwakarma+Institute+of+Technology,+Bibwewadi,+Pune"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-[#05070A]/90 hover:bg-[#2563EB] text-[#F8FAFC] text-[11px] font-medium border border-white/15 backdrop-blur-md transition-colors flex items-center gap-1.5 shadow-md"
+                >
+                  <span>Open in Maps</span>
+                  <ArrowRight size={12} />
+                </a>
+              </div>
+            </div>
+
+            {/* Column 2: Connect with us (Centered Glass Buttons) */}
+            <div className="md:col-span-3 flex flex-col items-start md:items-center">
+              <div className="space-y-4 w-full max-w-[200px]">
+                <h4 className="text-base sm:text-lg font-mono font-bold tracking-tight text-[#F8FAFC]">
+                  Connect with us
+                </h4>
+                
+                <div className="flex flex-col gap-3">
+                  <a
+                    href="https://www.instagram.com/csai_aisf/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Instagram"
+                    className="w-12 h-12 rounded-xl glass-card border border-white/10 flex items-center justify-center text-[#94A3B8] hover:text-white hover:border-[#3B82F6]/50 hover:bg-[#2563EB]/15 transition-all duration-200"
+                  >
+                    <InstagramIcon size={20} />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/artificial-intelligence-student-forum-aisf/posts/?feedView=all"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="LinkedIn"
+                    className="w-12 h-12 rounded-xl glass-card border border-white/10 flex items-center justify-center text-[#94A3B8] hover:text-white hover:border-[#3B82F6]/50 hover:bg-[#2563EB]/15 transition-all duration-200"
+                  >
+                    <LinkedinIcon size={20} />
+                  </a>
+                  <a
+                    href="mailto:aisf@vit.edu"
+                    aria-label="Email"
+                    className="w-12 h-12 rounded-xl glass-card border border-white/10 flex items-center justify-center text-[#94A3B8] hover:text-white hover:border-[#3B82F6]/50 hover:bg-[#2563EB]/15 transition-all duration-200"
+                  >
+                    <Mail size={20} />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 3: Contact Details & Leadership */}
+            <div className="md:col-span-4 space-y-4 font-mono">
+              <h4 className="text-base sm:text-lg font-mono font-bold tracking-tight text-[#F8FAFC]">
+                Contact
+              </h4>
+
+              {/* Location & Email info */}
+              <div className="space-y-2 text-xs sm:text-sm text-[#94A3B8]">
+                <a
+                  href="https://maps.google.com/?q=Vishwakarma+Institute+of+Technology,+Bibwewadi,+Pune"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-start gap-2 hover:text-[#3B82F6] transition-colors"
+                >
+                  <MapPin size={15} className="text-[#3B82F6] shrink-0 mt-0.5" />
+                  <span>VIT Bibwewadi, Pune, Maharashtra, India</span>
+                </a>
+                <a
+                  href="mailto:aisf@vit.edu"
+                  className="flex items-center gap-2 hover:text-[#3B82F6] transition-colors"
+                >
+                  <Mail size={15} className="text-[#3B82F6] shrink-0" />
+                  <span>aisf@vit.edu</span>
+                </a>
+              </div>
+
+              {/* Team Contacts */}
+              <div className="pt-3 border-t border-white/10 space-y-2 text-xs leading-relaxed text-[#94A3B8]">
+                <div>
+                  <span className="text-[#F8FAFC] font-medium">Om Kumar Garg: </span>
+                  <a href="tel:+918305261866" className="hover:text-[#3B82F6] transition-colors">
+                    +91-8305261866
+                  </a>
+                </div>
+                <div>
+                  <span className="text-[#F8FAFC] font-medium">Ruturaj Bhome: </span>
+                  <a href="tel:+918468812201" className="hover:text-[#3B82F6] transition-colors">
+                    +91-8468812201
+                  </a>
+                </div>
+                <div>
+                  <span className="text-[#F8FAFC] font-medium">Samarth Mahajan (President): </span>
+                  <a href="tel:+917028044996" className="hover:text-[#3B82F6] transition-colors">
+                    +91-7028044996
+                  </a>
+                </div>
+                <div>
+                  <span className="text-[#F8FAFC] font-medium">Pratham Shelke (PR &amp; Branding Secretary): </span>
+                  <a href="tel:+918767852276" className="hover:text-[#3B82F6] transition-colors">
+                    +91-8767852276
+                  </a>
+                </div>
+                <div>
+                  <span className="text-[#F8FAFC] font-medium">Shreya Ranjan (Technical Secretary): </span>
+                  <a href="mailto:samir.shreya24@vit.edu" className="hover:text-[#3B82F6] transition-colors">
+                    samir.shreya24@vit.edu
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748B] font-mono">
+            <p>© 2026 AISF VIT Pune. All rights reserved.</p>
             <div className="flex items-center gap-6">
-              <span className="text-xs uppercase tracking-widest text-[#94A3B8]">CODE APEX 2.0</span>
-              <a href="#teamTop" className="text-[#94A3B8] hover:text-[#00d2ff] transition-colors">
-                Back to top ↑
+              <span className="text-xs uppercase tracking-widest text-[#94A3B8]">AI Student Forum</span>
+              <a
+                href="#teamTop"
+                className="flex items-center gap-1.5 text-[#94A3B8] hover:text-[#3B82F6] transition-colors group cursor-pointer"
+              >
+                <span>Back to top</span>
+                <ChevronUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </div>
           </div>
+
         </div>
       </footer>
 

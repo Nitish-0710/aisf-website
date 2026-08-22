@@ -22,7 +22,7 @@ import getInvolvedImg1 from "./assets/AISF_GetInvolved.jpeg";
 import getInvolvedImg2 from "./assets/AISF_GetInvolved_2.jpg";
 import getInvolvedImg3 from "./assets/AISF_GetInvolved_3.jpg";
 import getInvolvedImg4 from "./assets/AISF_GetInvolved4.jpg";
-import GeodesicGlobeBackground from "./components/GeodesicGlobeBackground";
+import NeuralGlobeBackground from "./components/NeuralGlobeBackground";
 
 // Clean inline social icons
 const GithubIcon = ({ size = 15 }) => (
@@ -205,8 +205,8 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#05070A] text-[#F8FAFC] font-body selection:bg-[#2563EB] selection:text-white relative overflow-hidden">
       
-      {/* Non-intrusive 3D Geodesic Node & Constellation Background Layer */}
-      <GeodesicGlobeBackground />
+      {/* 3D Neural Sphere Background Layer */}
+      <NeuralGlobeBackground />
       
       {/* ========================================================= */}
       {/* 1. STICKY TOP NAVBAR (Dynamic Glass Pill Container) */}
@@ -398,7 +398,7 @@ export default function App() {
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#community"
+              href="/events"
               className="w-full sm:w-auto px-7 py-3.5 rounded-full glass-card text-[#F8FAFC] font-medium text-sm hover:border-white/20 transition-colors duration-200 flex items-center justify-center gap-2 active:scale-95"
             >
               <Sparkles size={15} className="text-[#3B82F6]" />
@@ -671,14 +671,14 @@ export default function App() {
 
               <div className="pt-4 flex flex-wrap gap-4">
                 <a
-                  href="#contact"
+                  href="/events"
                   className="px-6 py-3 rounded-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold text-sm transition-colors flex items-center gap-2 active:scale-95"
                 >
                   Explore our past events
                   <ArrowRight size={15} />
                 </a>
                 <a
-                  href="#home"
+                  href="/team"
                   className="px-6 py-3 rounded-full glass-card text-[#F8FAFC] font-medium text-sm hover:border-white/20 transition-colors flex items-center gap-2"
                 >
                   <Users size={15} className="text-[#3B82F6]" />

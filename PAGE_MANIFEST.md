@@ -6,11 +6,11 @@ This document maps every file, component, stylesheet, and asset in `my-react-app
 
 ## 🏠 1. HOME PAGE (`/` & `main` / `home-page` branch)
 
-The official landing page with the 70% dead-centered logo docking animation, background video loop, 3D Geodesic Constellation sphere, Who We Are, Pillars, Community gallery, and Footer.
+The official landing page with the 70% dead-centered logo docking animation, background video loop, 3D Neural Constellation sphere (`#00e5ff`), Who We Are, Pillars, Community gallery, and Footer.
 
 ### Source Code & Components
 - `src/App.jsx` *(Main Home page application container)*
-- `src/components/GeodesicGlobeBackground.jsx` *(Three.js 3D Constellation & Geodesic Sphere)*
+- `src/components/NeuralGlobeBackground.jsx` *(Three.js 3D Neural Fibonacci Sphere matching Events model with `#00e5ff` initial color)*
 - `src/index.css` *(Global Tailwind CSS configuration & tokens)*
 
 ### Assets (`src/assets/` & `public/`)
@@ -20,7 +20,6 @@ The official landing page with the 70% dead-centered logo docking animation, bac
 - `src/assets/AISF_GetInvolved.jpeg` *(Get Involved gallery photo 1)*
 - `src/assets/AISF_GetInvolved_2.jpg` *(Get Involved gallery photo 2)*
 - `src/assets/AISF_GetInvolved_3.jpg` *(Get Involved gallery photo 3)*
-- `src/assets/AISF_GetInvolved4.jpg` *(Get Involved gallery photo 4)*
 - `public/AISF_Logo_NoBG.png` *(Tab Favicon asset)*
 - `public/favicon.png` *(Tab Favicon asset)*
 - `public/favicon.svg` *(Fallback icon)*
@@ -30,10 +29,11 @@ The official landing page with the 70% dead-centered logo docking animation, bac
 
 ## 👥 2. TEAM DIRECTORY PAGE (`/team` & `team-page` branch)
 
-The official directory for the Faculty Advisory Board, Core Executive Board, and Department Secretaries with real-time search, category filtering, 3D neural WebGL canvas, and member modal dialogs.
+The official directory for the Faculty Advisory Board, Core Executive Board, and Department Secretaries with real-time search, category filtering, 3D Neural Fibonacci WebGL canvas (`#00e5ff`), and member modal dialogs.
 
 ### Source Code & Components
 - `src/pages/Team.jsx` *(Complete interactive Team Directory page & modal logic)*
+- `src/components/NeuralGlobeBackground.jsx` *(Shared 3D Neural Fibonacci Sphere with constant `#00e5ff` color)*
 - `src/team.css` *(Scoped styles for cards, search, pills, modals, and typography)*
 
 ### Assets (`public/assets/team/`)
@@ -57,7 +57,7 @@ The official directory for the Faculty Advisory Board, Core Executive Board, and
 
 ## 🚀 3. EVENTS & HACKATHONS PAGE (`/events` & `events-page` branch)
 
-The official events showcase for Code Apex 2.0 and Code Apex 1.0 with interactive timeline, 3D HoloModel neural canvas, and hackathon galleries.
+The official events showcase for Code Apex 2.0 and Code Apex 1.0 with interactive timeline, 3D HoloModel neural canvas (with section theme color transitions), and hackathon galleries.
 
 ### Source Code & Components
 - `src/pages/Events.jsx` *(Main Events page controller & theme morphing)*
@@ -66,7 +66,7 @@ The official events showcase for Code Apex 2.0 and Code Apex 1.0 with interactiv
 - `src/components/events/EventHero.jsx` *(Events hero banner & typography)*
 - `src/components/events/EventTimeline.jsx` *(Interactive event milestones)*
 - `src/components/events/EventSection.jsx` *(Event card showcase with media grids)*
-- `src/components/events/EventBackgroundModel.jsx` *(Three.js 3D Neural Sphere)*
+- `src/components/events/EventBackgroundModel.jsx` *(Three.js 3D Neural Sphere with dynamic section color transitions)*
 - `src/components/events/EventsFooter.jsx` *(Events dedicated footer)*
 
 ### Assets (`public/images/`)
@@ -93,6 +93,7 @@ These files configure Vite, Tailwind CSS, project packages, HTML headers, and th
 - `vite.config.js` *(Vite + Tailwind plugin build settings)*
 - `src/main.jsx` *(Client-side router with React.lazy code splitting)*
 - `README.md` *(Project overview & quickstart guide)*
+- `PAGE_MANIFEST.md` *(File-to-page & branch mapping matrix)*
 - `.gitignore` *(Node modules & dist ignores)*
 - `.oxlintrc.json` *(Linter configuration)*
 
@@ -100,9 +101,9 @@ These files configure Vite, Tailwind CSS, project packages, HTML headers, and th
 
 ## 📌 Summary Mapping Matrix
 
-| Page | Branch | Key Component | Dedicated CSS | Asset Folder |
+| Page | Branch | Key 3D Background Component | Dedicated CSS | Asset Folder |
 | :--- | :--- | :--- | :--- | :--- |
-| **Home Page** | `main` / `home-page` | `src/App.jsx` + `src/components/GeodesicGlobeBackground.jsx` | `src/index.css` | `src/assets/` & `public/` |
-| **Team Directory** | `team-page` | `src/pages/Team.jsx` | `src/team.css` | `public/assets/team/` |
-| **Events Page** | `events-page` | `src/pages/Events.jsx` + `src/components/events/*` | `src/events.css` | `public/images/` |
+| **Home Page** | `main` / `home-page` | `src/components/NeuralGlobeBackground.jsx` (Constant `#00e5ff`) | `src/index.css` | `src/assets/` & `public/` |
+| **Team Directory** | `team-page` | `src/components/NeuralGlobeBackground.jsx` (Constant `#00e5ff`) | `src/team.css` | `public/assets/team/` |
+| **Events Page** | `events-page` | `src/components/events/EventBackgroundModel.jsx` (Dynamic `#00e5ff` $\rightarrow$ `#ff3344` $\rightarrow$ `#2f7dff`) | `src/events.css` | `public/images/` |
 | **Shared Core** | *All Branches* | `src/main.jsx`, `index.html`, `vite.config.js` | — | `public/AISF_Logo_NoBG.png` |
