@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-const COUNT = 400;
+const COUNT = 300;
 const RADIUS = 1;
 const CONNECTION_THRESHOLD = 0.26;
 
@@ -116,8 +116,8 @@ function EventBackgroundModel() {
         Scroll down = forward rotation.
         Scroll up = reverse rotation.
       */
-      targetRotationY.current += delta * 0.008;
-      targetRotationX.current += delta * 0.0015;
+      targetRotationY.current += delta * 0.0035;
+      targetRotationX.current += delta * 0.0007;
 
       lastScrollY = currentScrollY;
 
@@ -186,7 +186,7 @@ function EventBackgroundModel() {
     */
 
     const rotationSmoothness =
-      1 - Math.exp(-7 * delta);
+      1 - Math.exp(-4 * delta);
 
     groupRef.current.rotation.y =
       THREE.MathUtils.lerp(
@@ -276,20 +276,6 @@ function EventBackgroundModel() {
 
     groupRef.current.scale.setScalar(newScale);
 
-    /*
-      -------------------------------------------------------
-      SUBTLE LINE PULSE
-      -------------------------------------------------------
-    */
-
-    if (lineMaterialRef.current) {
-      lineMaterialRef.current.opacity =
-        0.12 +
-        0.035 *
-        Math.sin(
-          state.clock.elapsedTime * 0.5
-        );
-    }
   });
 
   return (
