@@ -1,3 +1,9 @@
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaEnvelope
+} from "react-icons/fa";
+
 function Footer() {
   return (
     <footer className="events-footer" id="contact">
@@ -42,30 +48,35 @@ function Footer() {
             <h3>Connect with us</h3>
 
             <div className="footer-social">
+
+              {/* Instagram */}
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
               >
-                ◎
+                <FaInstagram />
               </a>
 
+              {/* LinkedIn */}
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
-                in
+                <FaLinkedinIn />
               </a>
 
+              {/* Email */}
               <a
                 href="mailto:aisf@vit.edu"
                 aria-label="Email"
               >
-                ✉
+                <FaEnvelope />
               </a>
+
             </div>
           </div>
 
@@ -84,7 +95,10 @@ function Footer() {
               </a>
 
               <p>
-                ✉️ <a href="mailto:aisf@vit.edu">aisf@vit.edu</a>
+                ✉️{" "}
+                <a href="mailto:aisf@vit.edu">
+                  aisf@vit.edu
+                </a>
               </p>
             </div>
 
@@ -124,7 +138,6 @@ function Footer() {
             <a href="#top">Back to top ↑</a>
           </div>
         </div>
-
       </div>
     </footer>
   );
