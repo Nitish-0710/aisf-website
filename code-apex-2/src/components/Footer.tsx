@@ -11,7 +11,11 @@ const Footer = () => {
           <div className="footer-brand">
             <img
               className="footer-logo"
+<<<<<<< HEAD
               src={logo}
+=======
+              src="/src/assets/aisf-logo.png"
+>>>>>>> da3799f7ed8063589699b46e9bc2c5aa99d5fbb6
               alt="AISF Logo"
             />
 
