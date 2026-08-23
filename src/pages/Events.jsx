@@ -213,6 +213,17 @@ function Events() {
           title="Code Apex 2.0"
           date="16 MAR 2026"
           theme="theme-red"
+
+          prizePool="₹1,50,000"
+          teamsParticipated="358"
+
+          benefits={[
+            "Goodies & Swags",
+            "Certificate",
+          ]}
+
+          eventUrl="https://aisf-vca-2.netlify.app/ "
+          openInNewTab={true}
           reverse
           images={[
             "/images/events/ca-2/VCA2.1.jpeg",
@@ -220,6 +231,12 @@ function Events() {
             "/images/events/ca-2/VCA2.3.jpeg",
             "/images/events/ca-2/VCA2.4.jpeg",
             "/images/events/ca-2/VCA2.5.jpeg",
+
+            "/images/events/ca-2/OAK_7002.JPG",
+            "/images/events/ca-2/OAK_7031.JPG",
+            "/images/events/ca-2/OAK_7143.JPG",
+            "/images/events/ca-2/OAK_7095.JPG",
+            "/images/events/ca-2/OAK_7075.JPG",
           ]}
           description="Code Apex 2.0 continued the journey with a larger and more intense hackathon experience, bringing together creativity, technology and collaboration under one challenge."
         />
@@ -231,11 +248,27 @@ function Events() {
           title="Code Apex 1.0"
           date="18 SEP 2025"
           theme="theme-blue"
+
+          prizePool="₹1,00,000"
+          teamsParticipated="256"
+          benefits={[
+            "Goodies & Swags",
+            "Certificate",
+          ]}
+
+          eventUrl="https://aisf-vit-code-apex.netlify.app/"
+          openInNewTab={true}
           images={[
             "/images/events/ca-1/VCA1.1.jpeg",
             "/images/events/ca-1/VCA1.2.jpeg",
             "/images/events/ca-1/VCA1.3.jpeg",
             "/images/events/ca-1/VCA1.4.jpeg",
+            "/images/events/ca-1/VCA1.5.png",
+            "/images/events/ca-1/VCA1.6.png",
+            "/images/events/ca-1/VCA1.7.png",
+            "/images/events/ca-1/VCA1.8.png",
+            "/images/events/ca-1/VCA1.9.png",
+            "/images/events/ca-1/VCA1.10.png",
           ]}
           description="Code Apex 1.0 brought together students, developers and technology enthusiasts for a high-energy experience focused on problem solving, innovation and building with technology."
         />

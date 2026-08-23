@@ -1,9 +1,5 @@
-import {
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
-
 import { FiMail } from "react-icons/fi";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -12,7 +8,6 @@ function Footer() {
 
       <div className="footer-wrap">
         <div className="footer-grid">
-
           {/* BRAND */}
           <div className="footer-brand">
             <div className="footer-logo">
@@ -64,7 +59,7 @@ function Footer() {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
-                <FaLinkedinIn />
+                <FaLinkedin />
               </a>
 
               <a
@@ -119,7 +114,6 @@ function Footer() {
               </p>
             </div>
           </div>
-
         </div>
 
         {/* BOTTOM */}
