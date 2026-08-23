@@ -104,14 +104,6 @@ function Footer() {
 
             <div className="footer-people">
               <p>
-                <b>Om Kumar Garg:</b> +91-8305261866
-              </p>
-
-              <p>
-                <b>Ruturaj Bhome:</b> +91-8468812201
-              </p>
-
-              <p>
                 <b>Samarth Mahajan (President):</b> +91-7028044996
               </p>
 
