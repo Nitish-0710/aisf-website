@@ -686,9 +686,17 @@ export default function Team() {
       )}
 
       {/* ========================================================= */}
-      {/* FOOTER (Matching Home Page Layout & Structure) */}
+      {/* FOOTER (50% Transparent Glassmorphic Footer) */}
       {/* ========================================================= */}
-      <footer id="contact" className="relative bg-[#05070A]/85 border-t border-white/10 pt-16 pb-12 px-6 sm:px-12 lg:px-20 z-20">
+      <footer
+        id="contact"
+        className="relative border-t border-white/10 pt-16 pb-12 px-6 sm:px-12 lg:px-20 z-20"
+        style={{
+          backgroundColor: "rgba(3, 4, 8, 0.5)",
+          backdropFilter: "blur(6px)",
+          WebkitBackdropFilter: "blur(6px)",
+        }}
+      >
         <div className="max-w-6xl mx-auto">
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-white/10">

@@ -579,9 +579,11 @@
 
   padding: 100px 0 0;
 
-  background: #04060d;
+  background: rgba(4, 6, 13, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 
   overflow: hidden;
 }
