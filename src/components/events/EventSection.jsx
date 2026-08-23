@@ -8,6 +8,8 @@ function EventSection({
   description,
   images,
   theme,
+  eventUrl,
+  openInNewTab = false,
   reverse = false,
 }) {
 
@@ -28,7 +30,12 @@ function EventSection({
 
           <p>{description}</p>
 
-          <a href="../code-apex-2/index.html" className="event-button">
+          <a
+            href={eventUrl}
+            className="event-button"
+            target={openInNewTab ? "_blank" : undefined}
+            rel={openInNewTab ? "noopener noreferrer" : undefined}
+          >
             VIEW EVENT
             <span>↗</span>
           </a>
