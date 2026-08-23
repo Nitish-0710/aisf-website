@@ -108,8 +108,11 @@ function Footer() {
               </p>
 
               <p>
-                <b>Pratham Shelke (PR & Branding Secretary):</b>{" "}
-                +91-8767852276
+                <b>Vedant Nehe (Vice-President):</b> +91-9767559932
+              </p>
+
+              <p>
+                <b>Pratham Shelke (PR & Branding Secretary):</b> +91-8767852276
               </p>
 
               <p>
