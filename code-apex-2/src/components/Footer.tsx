@@ -1,8 +1,9 @@
 import {
   FaInstagram,
   FaLinkedinIn,
-  FaEnvelope
 } from "react-icons/fa";
+
+import { FiMail } from "react-icons/fi";
 
 function Footer() {
   return (
@@ -48,8 +49,6 @@ function Footer() {
             <h3>Connect with us</h3>
 
             <div className="footer-social">
-
-              {/* Instagram */}
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -59,7 +58,6 @@ function Footer() {
                 <FaInstagram />
               </a>
 
-              {/* LinkedIn */}
               <a
                 href="https://linkedin.com"
                 target="_blank"
@@ -69,14 +67,12 @@ function Footer() {
                 <FaLinkedinIn />
               </a>
 
-              {/* Email */}
               <a
                 href="mailto:aisf@vit.edu"
                 aria-label="Email"
               >
-                <FaEnvelope />
+                <FiMail />
               </a>
-
             </div>
           </div>
 
@@ -95,10 +91,7 @@ function Footer() {
               </a>
 
               <p>
-                ✉️{" "}
-                <a href="mailto:aisf@vit.edu">
-                  aisf@vit.edu
-                </a>
+                ✉️ <a href="mailto:aisf@vit.edu">aisf@vit.edu</a>
               </p>
             </div>
 
