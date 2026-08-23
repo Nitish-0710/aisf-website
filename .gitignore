@@ -9,7 +9,7 @@ lerna-debug.log*
 
 code-apex-2
 node_modules
-dist
+dist/
 dist-ssr
 *.local
 
