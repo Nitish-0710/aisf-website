@@ -1,4 +1,4 @@
-function EventsFooter() {
+function Footer() {
   return (
     <footer className="events-footer" id="contact">
       <div className="footer-dots" />
@@ -10,14 +10,14 @@ function EventsFooter() {
           <div>
             <div className="footer-logo">
               <img
-                src="/images/aisf-logo.png"
-                alt="AISF - Artificial Intelligence Student Forum"
+                src="/aisf-logo.png"
+                alt="AISF Logo"
               />
             </div>
 
             <p className="footer-tagline">
               Fostering innovation, learning, and collaboration in AI and
-              technology at Vishwakarma Institute of Technology, Pune.
+              technology.
             </p>
 
             <div className="footer-map">
@@ -26,7 +26,7 @@ function EventsFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open in Maps ↗
+                Open in Maps →
               </a>
 
               <iframe
@@ -69,69 +69,35 @@ function EventsFooter() {
             <h3>Contact</h3>
 
             <div className="footer-contact">
-              <p>VIT Bibwewadi, Pune, Maharashtra, India</p>
+              <p>📍 VIT Bibwewadi, Pune, Maharashtra, India</p>
 
               <p>
-                <a href="mailto:aisf@vit.edu">
-                  aisf@vit.edu
-                </a>
+                ✉️ <a href="mailto:aisf@vit.edu">aisf@vit.edu</a>
               </p>
             </div>
 
             <div className="footer-people">
-              <div>
-                <b>Samarth Mahajan</b>
-                <span>President</span>
-                <a href="tel:+918305261866">
-                  +91 83052 61866
-                </a>
-              </div>
-
-              <div>
-                <b>Ruturaj Bhome</b>
-                <span>Vice President</span>
-                <a href="tel:+918468012201">
-                  +91 84680 12201
-                </a>
-              </div>
-
-              <div>
-                <b>Samarth Mahajan</b>
-                <span>Event Head (Hackathon)</span>
-                <a href="tel:+917028044996">
-                  +91 70280 44996
-                </a>
-              </div>
-
-              <div>
-                <b>Pratham Shelke</b>
-                <span>PR & Branding Head</span>
-                <a href="tel:+918767852276">
-                  +91 87678 52276
-                </a>
-              </div>
-
-              <div>
-                <b>Shreya Ranjan</b>
-                <span>Technical Secretary</span>
-                <a href="mailto:samir.shreya24@vit.edu">
-                  samir.shreya24@vit.edu
-                </a>
-              </div>
+              <p><b>Om Kumar Garg:</b> +91-8305261866</p>
+              <p><b>Ruturaj Bhome:</b> +91-8468812201</p>
+              <p><b>Samarth Mahajan (President):</b> +91-7028044996</p>
+              <p><b>Pratham Shelke (PR & Branding Secretary):</b> +91-8767852276</p>
+              <p><b>Shreya Ranjan (Technical Secretary):</b> samir.shreya24@vit.edu</p>
             </div>
           </div>
+
         </div>
 
         <div className="footer-bottom">
-          <span>© 2025 AISF VIT Pune. All rights reserved.</span>
+          <span>© 2026 AISF VIT Pune. All rights reserved.</span>
 
-          <span className="footer-badge">
-            Code Apex 2.0
-          </span>
+          <div className="footer-bottom-right">
+            <span>AISF STUDENT FORUM</span>
+            <a href="#top">Back to top ↑</a>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
 
-export default EventsFooter;
+export default Footer;
