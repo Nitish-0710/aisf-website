@@ -1,23 +1,21 @@
-import logo from "../assets/aisf-logo.png";
+import { FiMail } from "react-icons/fi";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
-const Footer = () => {
+function Footer() {
   return (
-    <footer className="footer" id="contact">
+    <footer className="events-footer" id="contact">
+      <div className="footer-dots" />
+
       <div className="footer-wrap">
-
         <div className="footer-grid">
-
-          {/* LEFT */}
+          {/* BRAND */}
           <div className="footer-brand">
-            <img
-              className="footer-logo"
-<<<<<<< HEAD
-              src={logo}
-=======
-              src="/src/assets/aisf-logo.png"
->>>>>>> da3799f7ed8063589699b46e9bc2c5aa99d5fbb6
-              alt="AISF Logo"
-            />
+            <div className="footer-logo">
+              <img
+                src="/AISF_Logo_NoBG.png"
+                alt="AISF Logo"
+              />
+            </div>
 
             <p className="footer-tagline">
               Fostering innovation, learning, and collaboration in AI and
@@ -25,68 +23,74 @@ const Footer = () => {
             </p>
 
             <div className="footer-map">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Vishwakarma+Institute+of+Technology+Pune"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open in Maps →
+              </a>
+
               <iframe
                 src="https://www.google.com/maps?q=Vishwakarma+Institute+of+Technology,+Bibwewadi,+Pune&output=embed"
                 loading="lazy"
-                title="AISF VIT Pune"
+                title="AISF VIT Pune location"
               />
             </div>
           </div>
 
-          {/* MIDDLE */}
+          {/* SOCIAL */}
           <div className="footer-connect">
             <h3>Connect with us</h3>
 
             <div className="footer-social">
-
               <a
                 href="https://instagram.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
               >
-                ◎
+                <FaInstagram />
               </a>
 
               <a
                 href="https://linkedin.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
-                in
+                <FaLinkedin />
               </a>
 
               <a
                 href="mailto:aisf@vit.edu"
                 aria-label="Email"
               >
-                ✉
+                <FiMail />
               </a>
-
             </div>
           </div>
 
-          {/* RIGHT */}
+          {/* CONTACT */}
           <div className="footer-contact-section">
-
             <h3>Contact</h3>
 
-            <p className="footer-location">
-              📍 VIT Bibwewadi, Pune, Maharashtra, India
-            </p>
+            <div className="footer-contact">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Vishwakarma+Institute+of+Technology+Bibwewadi+Pune"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-address-link"
+              >
+                📍 VIT Bibwewadi, Pune, Maharashtra, India
+              </a>
 
-            <a
-              className="footer-email"
-              href="mailto:aisf@vit.edu"
-            >
-              ✉ aisf@vit.edu
-            </a>
-
-            <div className="footer-divider" />
+              <p>
+                ✉️ <a href="mailto:aisf@vit.edu">aisf@vit.edu</a>
+              </p>
+            </div>
 
             <div className="footer-people">
-
               <p>
                 <b>Om Kumar Garg:</b> +91-8305261866
               </p>
@@ -100,41 +104,30 @@ const Footer = () => {
               </p>
 
               <p>
-                <b>Pratham Shelke (PR & Branding Secretary):</b>
+                <b>Pratham Shelke (PR & Branding Secretary):</b>{" "}
                 +91-8767852276
               </p>
 
               <p>
-                <b>Shreya Ranjan (Technical Secretary):</b>
+                <b>Shreya Ranjan (Technical Secretary):</b>{" "}
                 samir.shreya24@vit.edu
               </p>
-
             </div>
-
           </div>
-
         </div>
 
         {/* BOTTOM */}
         <div className="footer-bottom">
-
-          <span>
-            © 2026 AISF VIT Pune. All rights reserved.
-          </span>
+          <span>© 2026 AISF VIT Pune. All rights reserved.</span>
 
           <div className="footer-bottom-right">
-            <span>AI STUDENT FORUM</span>
-
-            <a href="#top">
-              Back to top ↑
-            </a>
+            <span>AISF STUDENT FORUM</span>
+            <a href="#top">Back to top ↑</a>
           </div>
-
         </div>
-
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;
