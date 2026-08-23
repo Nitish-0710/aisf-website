@@ -1334,3 +1334,218 @@ html {
 .events-page .theme-red {
   background: transparent !important;
 }
+
+
+.hero-floating-image {
+  position: absolute;
+
+  width: 220px;
+  height: 145px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  background: #05070b;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(37, 99, 235, 0.10);
+
+  will-change: transform;
+
+  transform-origin: center center;
+}
+
+.hero-floating-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.hero-img-1 {
+  left: 9%;
+  top: 28%;
+}
+
+.hero-img-2 {
+  right: 9%;
+  top: 25%;
+}
+
+.hero-img-3 {
+  right: 12%;
+  bottom: 13%;
+}
+
+
+
+
+/* ============================= */
+/* SOCIAL */
+/* ============================= */
+
+.footer-connect {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(5, 8, 16, 0.9);
+
+  border: 1px solid rgba(15, 136, 236, 0.22);
+  border-radius: 16px;
+
+  color: #aeb8c8;
+  text-decoration: none;
+
+  font-size: 27px;
+
+  box-shadow:
+    0 0 8px rgba(33, 136, 246, 0.08),
+    0 0 18px rgba(0, 120, 255, 0.05),
+    inset 0 0 12px rgba(255, 255, 255, 0.015);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-4px);
+
+  color: #392bd1;
+
+  border-color: rgba(70, 44, 237, 0.8);
+
+  background: rgba(255, 30, 60, 0.06);
+
+  box-shadow:
+    0 0 10px rgba(54, 27, 225, 0.3),
+    0 0 25px rgba(33, 58, 221, 0.18),
+    inset 0 0 15px rgba(255, 30, 60, 0.05);
+}
+
+.footer-social a svg {
+  width: 27px;
+  height: 27px;
+}
+
+/* =========================================================
+   EVENT BENEFITS
+========================================================= */
+
+.event-benefits {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+
+/* =========================================================
+   BENEFIT ITEM
+========================================================= */
+
+.event-benefit {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 9px 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #aeb8c8;
+
+  font-family: monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   VIEW EVENT BUTTON
+========================================================= */
+
+.event-button {
+  display: flex;
+
+  width: fit-content;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 28px;
+
+  margin-top: 30px;
+
+  padding: 13px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  background: transparent;
+
+  color: #f1f4f8;
+
+  font-family: monospace;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.event-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+
+  border-color: rgba(255, 255, 255, 0.35);
+
+  transform: translateY(-2px);
+}
+
+.event-button span {
+  font-size: 14px;
+}
