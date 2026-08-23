@@ -727,11 +727,7 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 
-<<<<<<< HEAD
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-=======
   border-top: 1px solid rgba(255, 255, 255, 0.12);
->>>>>>> bb755b1f6124af7963adcb5d9dfa8915d36d4eca
 
   overflow: hidden;
 }
