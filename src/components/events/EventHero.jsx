@@ -118,27 +118,23 @@ function EventHero() {
               key={index}
               className={`hero-floating-image ${image.className}`}
               style={{
+                "--float-delay": image.delay,
+
                 transform: `
-            translate3d(
-              ${image.x * spreadMultiplier}px,
-              ${image.y * spreadMultiplier}px,
-              0
-            )
-            rotate(
-              ${image.rotate * spreadMultiplier}deg
-            )
-          `,
+      translate3d(
+        ${image.x * spreadMultiplier}px,
+        ${image.y * spreadMultiplier}px,
+        0
+      )
+      rotate(
+        ${image.rotate * spreadMultiplier}deg
+      )
+    `,
+
                 opacity: 1 - progress * 0.75,
               }}
             >
-              <div
-                className="hero-floating-image-inner"
-                style={{
-                  animationDelay: image.delay,
-                }}
-              >
-                <img src={image.src} alt="AISF event" />
-              </div>
+              <img src={image.src} alt="AISF event" />
             </div>
           );
         })}

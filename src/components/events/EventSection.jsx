@@ -29,8 +29,6 @@ function EventSection({
         {/* EVENT CONTENT */}
         <div className="event-section-content">
 
-          <span className="event-index">{number}</span>
-
           <div className="event-date">{date}</div>
 
           <h2>{title}</h2>
