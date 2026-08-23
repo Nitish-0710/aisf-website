@@ -477,6 +477,153 @@
   font-size: 16px;
 }
 
+/* =========================================================
+   EVENT INFORMATION
+========================================================= */
+
+.event-stats {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 35px;
+
+  margin-top: 35px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+.event-stat {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+.event-stat-label {
+  color: #68748b;
+
+  font-family: monospace;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+
+.event-stat-value {
+  color: #f1f4f8;
+
+  font-family: monospace;
+
+  font-size: 21px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+}
+
+
+/* =========================================================
+   EVENT BENEFITS
+========================================================= */
+
+.event-benefits {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+
+.event-benefit {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #aeb8c8;
+
+  font-family: monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.event-benefit:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
+.event-benefit-dot {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  color: white;
+
+  font-size: 12px;
+
+  line-height: 1;
+}
+
+
+/* BLUE EVENT */
+
+.theme-blue .event-benefit:hover {
+  border-color: rgba(37, 99, 235, 0.65);
+}
+
+.theme-blue .event-benefit-dot {
+  color: #60a5fa;
+}
+
+
+/* RED EVENT */
+
+.theme-red .event-benefit:hover {
+  border-color: rgba(220, 38, 38, 0.65);
+}
+
+.theme-red .event-benefit-dot {
+  color: #f87171;
+}
+
 .event-button {
   display: inline-flex;
 
