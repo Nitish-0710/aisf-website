@@ -726,12 +726,7 @@
   background: rgba(4, 6, 13, 0.5);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-
-<<<<<<< HEAD
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-=======
   border-top: 1px solid rgba(255, 255, 255, 0.12);
->>>>>>> d6e24576 (complete events section updates)
 
   overflow: hidden;
 }
