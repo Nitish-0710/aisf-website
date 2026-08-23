@@ -440,37 +440,271 @@ main {
 /* ================= FOOTER ================= */
 
 .footer {
-  min-height: 300px;
-  padding: 80px clamp(25px, 8vw, 130px);
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  position: relative;
+  padding: 80px clamp(25px, 8vw, 130px) 55px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-  border-top:
-    1px solid rgba(255, 255, 255, 0.08);
+.footer-wrap {
+  width: 100%;
+  max-width: 1450px;
+  margin: auto;
+}
 
-  background: #03050c;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.55fr 1fr;
+  gap: clamp(50px, 7vw, 130px);
+  align-items: start;
+}
+
+/* ================= LEFT ================= */
+
+.footer-brand {
+  max-width: 480px;
 }
 
 .footer-logo {
-  width: 100px;
+  width: 90px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin-bottom: 25px;
 }
+
+.footer-tagline {
+  max-width: 480px;
+  color: #9ca6b8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+/* MAP */
+
+.footer-map {
+  position: relative;
+  width: 100%;
+  height: 235px;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(130, 160, 200, 0.15);
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+
+  filter:
+    grayscale(1)
+    contrast(0.8)
+    brightness(0.75);
+}
+
+/* ================= HEADINGS ================= */
 
 .footer h3 {
-  font-family: "Orbitron", sans-serif;
-
-  font-size: 17px;
+  font-family: "Space Mono", monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: #e8eaf0;
+  margin-bottom: 25px;
 }
 
-.footer p {
-  color: #8f96a5;
+/* ================= SOCIAL ================= */
 
-  margin-top: 10px;
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.copyright {
-  margin-left: auto;
+.footer-social a {
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  color: #aeb8c8;
+  font-size: 25px;
+  font-weight: 700;
+
+  border-radius: 16px;
+
+  background: rgba(5, 10, 20, 0.7);
+
+  border:
+    1px solid rgba(80, 130, 190, 0.25);
+
+  box-shadow:
+    0 0 18px rgba(30, 120, 255, 0.08),
+    inset 0 0 12px rgba(255, 255, 255, 0.02);
+
+  transition: all 0.25s ease;
+}
+
+.footer-social a:hover {
+  color: white;
+
+  transform: translateY(-3px);
+
+  border-color: rgba(0, 229, 255, 0.7);
+
+  box-shadow:
+    0 0 20px rgba(0, 229, 255, 0.18);
+}
+
+/* ================= CONTACT ================= */
+
+.footer-contact-section {
+  max-width: 480px;
+}
+
+.footer-location,
+.footer-email {
+  display: block;
+
+  color: #aeb8c8;
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  margin-bottom: 15px;
+
+  text-decoration: none;
+}
+
+.footer-email:hover {
+  color: #00e5ff;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 22px 0 18px;
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+.footer-people {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.footer-people p {
+  margin: 0;
+
+  color: #aeb8c8;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.footer-people b {
+  color: #e2e6ed;
+}
+
+/* ================= BOTTOM ================= */
+
+.footer-bottom {
+  margin-top: 70px;
+  padding-top: 28px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #8d99aa;
+
+  font-size: 13px;
+}
+
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+
+  letter-spacing: 2px;
+}
+
+.footer-bottom-right a {
+  color: #9ca6b8;
+
+  text-decoration: none;
+
+  letter-spacing: normal;
+
+  transition: color 0.2s;
+}
+
+.footer-bottom-right a:hover {
+  color: #00e5ff;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 950px) {
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-contact-section {
+    grid-column: span 2;
+  }
+
+  .footer-social {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 650px) {
+
+  .footer {
+    padding: 65px 25px 35px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .footer-contact-section {
+    grid-column: auto;
+  }
+
+  .footer-map {
+    height: 220px;
+  }
+
+  .footer-bottom {
+    margin-top: 50px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 25px;
+  }
+
+  .footer-bottom-right {
+    gap: 20px;
+
+    flex-wrap: wrap;
+  }
 }
 
 
