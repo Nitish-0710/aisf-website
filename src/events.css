@@ -727,11 +727,7 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 
-<<<<<<< HEAD
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-=======
   border-top: 1px solid rgba(255, 255, 255, 0.1);
->>>>>>> 05802229 (working view events button and updated hero section)
 
   overflow: hidden;
 }
@@ -1341,7 +1337,6 @@ html {
   background: transparent !important;
 }
 
-<<<<<<< HEAD
 
 
 
@@ -1422,11 +1417,10 @@ html {
 
 .hero-img-3 {
   right: 12%;
-  bottom: 13%;
-=======
+  bottom: 13%;}
 /* ============================= */
 /* SOCIAL */
-/* ============================= */
+/* ==================ss=========== */
 
 .footer-connect {
   display: flex;
@@ -1490,5 +1484,5 @@ html {
 .footer-social a svg {
   width: 27px;
   height: 27px;
->>>>>>> b67b93f0 (Update events and Code Apex footers and styles)
 }
+ 
