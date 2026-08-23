@@ -7,10 +7,10 @@ function Footer() {
         <div className="footer-grid">
 
           {/* BRAND */}
-          <div>
+          <div className="footer-brand">
             <div className="footer-logo">
               <img
-                src="/aisf-logo.png"
+                src="/AISF_Logo_NoBG.png"
                 alt="AISF Logo"
               />
             </div>
@@ -38,7 +38,7 @@ function Footer() {
           </div>
 
           {/* SOCIAL */}
-          <div>
+          <div className="footer-connect">
             <h3>Connect with us</h3>
 
             <div className="footer-social">
@@ -46,30 +46,42 @@ function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
               >
-                Instagram
+                ◎
               </a>
 
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
-                LinkedIn
+                in
               </a>
 
-              <a href="mailto:aisf@vit.edu">
-                Email
+              <a
+                href="mailto:aisf@vit.edu"
+                aria-label="Email"
+              >
+                ✉
               </a>
             </div>
           </div>
 
           {/* CONTACT */}
-          <div>
+          <div className="footer-contact-section">
             <h3>Contact</h3>
 
             <div className="footer-contact">
-              <p>📍 VIT Bibwewadi, Pune, Maharashtra, India</p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Vishwakarma+Institute+of+Technology+Bibwewadi+Pune"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-address-link"
+              >
+                📍 VIT Bibwewadi, Pune, Maharashtra, India
+              </a>
 
               <p>
                 ✉️ <a href="mailto:aisf@vit.edu">aisf@vit.edu</a>
@@ -77,16 +89,33 @@ function Footer() {
             </div>
 
             <div className="footer-people">
-              <p><b>Om Kumar Garg:</b> +91-8305261866</p>
-              <p><b>Ruturaj Bhome:</b> +91-8468812201</p>
-              <p><b>Samarth Mahajan (President):</b> +91-7028044996</p>
-              <p><b>Pratham Shelke (PR & Branding Secretary):</b> +91-8767852276</p>
-              <p><b>Shreya Ranjan (Technical Secretary):</b> samir.shreya24@vit.edu</p>
+              <p>
+                <b>Om Kumar Garg:</b> +91-8305261866
+              </p>
+
+              <p>
+                <b>Ruturaj Bhome:</b> +91-8468812201
+              </p>
+
+              <p>
+                <b>Samarth Mahajan (President):</b> +91-7028044996
+              </p>
+
+              <p>
+                <b>Pratham Shelke (PR & Branding Secretary):</b>{" "}
+                +91-8767852276
+              </p>
+
+              <p>
+                <b>Shreya Ranjan (Technical Secretary):</b>{" "}
+                samir.shreya24@vit.edu
+              </p>
             </div>
           </div>
 
         </div>
 
+        {/* BOTTOM */}
         <div className="footer-bottom">
           <span>© 2026 AISF VIT Pune. All rights reserved.</span>
 
@@ -95,6 +124,7 @@ function Footer() {
             <a href="#top">Back to top ↑</a>
           </div>
         </div>
+
       </div>
     </footer>
   );
