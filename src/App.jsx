@@ -332,8 +332,14 @@ export default function App() {
         id="home"
         className="relative min-h-[140vh] w-full flex flex-col items-center overflow-hidden z-10"
       >
-        {/* Hero Background Video (Looping continuously) */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
+        {/* Hero Background Video (Looping continuously with alpha transparency fade) */}
+        <div
+          className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
+          style={{
+            maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(0,0,0,0.65) 60%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(0,0,0,0.65) 60%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100%)",
+          }}
+        >
           <video
             ref={videoRef}
             autoPlay
@@ -341,13 +347,12 @@ export default function App() {
             muted
             playsInline
             preload="metadata"
-            className="w-full h-full object-cover opacity-85"
+            className="w-full h-full object-cover opacity-80"
           >
             <source src={heroBgVideo} type="video/mp4" />
           </video>
-          {/* Subtle Contrast Overlay */}
-          <div className="absolute inset-0 hero-video-overlay opacity-60" />
-          <div className="absolute inset-0 bg-[#05070A]/20" />
+          {/* Subtle Contrast Tint */}
+          <div className="absolute inset-0 bg-[#05070A]/20 pointer-events-none" />
         </div>
 
         {/* Initial Scroll Prompt (Visible only at top of page) */}
@@ -359,8 +364,8 @@ export default function App() {
           }}
           onClick={scrollDownPastHero}
         >
-          <span className="text-[11px] uppercase tracking-[0.25em] text-[#94A3B8] font-medium">Scroll to explore</span>
-          <ChevronDown size={18} className="text-[#3B82F6] animate-bounce" />
+          <span className="text-[11px] uppercase tracking-[0.25em] text-[#F8FAFC] font-semibold drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">Scroll to explore</span>
+          <ChevronDown size={20} className="text-[#00e5ff] drop-shadow-[0_0_10px_rgba(0,229,255,0.8)] animate-bounce" />
         </div>
 
         {/* Hero Content (Only reveals after the logo docks at the top) */}
@@ -431,7 +436,7 @@ export default function App() {
       {/* ========================================================= */}
       {/* 4. SECTION 01 — WHO WE ARE & MISSION (Text + Image) */}
       {/* ========================================================= */}
-      <section id="about" className="relative py-24 sm:py-32 px-6 sm:px-12 lg:px-20 z-10 bg-[#05070A]/75 border-t border-white/10">
+      <section id="about" className="relative py-24 sm:py-32 px-6 sm:px-12 lg:px-20 z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
@@ -495,12 +500,9 @@ export default function App() {
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass-nav border border-white/10 backdrop-blur-md">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs font-semibold text-[#F8FAFC]">AISF CDAC Drone Bootcamp 2026</div>
-                      <div className="text-[11px] text-[#94A3B8]">5-Day bootcamp based on Drones</div>
+                      <div className="text-xs font-semibold text-[#F8FAFC]">Code Apex 2.0 Hackathon</div>
+                      <div className="text-[11px] text-[#94A3B8]">Vishwakarma Institute of Technology, Pune</div>
                     </div>
-                    {/* <span className="text-[10px] font-mono uppercase bg-white/5 border border-white/10 px-2 py-1 rounded text-[#3B82F6]">
-                      Official Team
-                    </span> */}
                   </div>
                 </div>
               </div>
@@ -692,9 +694,17 @@ export default function App() {
       </section>
 
       {/* ========================================================= */}
-      {/* 7. FOOTER (Matching Reference Layout & Structure) */}
+      {/* 7. FOOTER (50% Transparent Glassmorphic Footer) */}
       {/* ========================================================= */}
-      <footer id="contact" className="relative bg-[#05070A]/85 border-t border-white/10 pt-16 pb-12 px-6 sm:px-12 lg:px-20 z-10">
+      <footer
+        id="contact"
+        className="relative border-t border-white/10 pt-16 pb-12 px-6 sm:px-12 lg:px-20 z-10"
+        style={{
+          backgroundColor: "rgba(5, 7, 10, 0.5)",
+          backdropFilter: "blur(6px)",
+          WebkitBackdropFilter: "blur(6px)",
+        }}
+      >
         <div className="max-w-6xl mx-auto">
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-white/10">
@@ -786,7 +796,7 @@ export default function App() {
                   className="flex items-start gap-2 hover:text-[#3B82F6] transition-colors"
                 >
                   <MapPin size={15} className="text-[#3B82F6] shrink-0 mt-0.5" />
-                  <span>VIT Bibwewadi, Pune, Maharashtra, India</span>
+                  <span>Building 3, VIT Bibwewadi, Pune, Maharashtra, India</span>
                 </a>
                 <a
                   href="mailto:aisf@vit.edu"
@@ -800,31 +810,31 @@ export default function App() {
               {/* Team Contacts */}
               <div className="pt-3 border-t border-white/10 space-y-2 text-xs leading-relaxed text-[#94A3B8]">
                 <div>
-                  <span className="text-[#F8FAFC] font-medium">Om Kumar Garg: </span>
+                  <span className="text-[#F8FAFC] font-medium">President - Samarth Mahajan: </span>
                   <a href="tel:+918305261866" className="hover:text-[#3B82F6] transition-colors">
                     +91-8305261866
                   </a>
                 </div>
                 <div>
-                  <span className="text-[#F8FAFC] font-medium">Ruturaj Bhome: </span>
+                  <span className="text-[#F8FAFC] font-medium">Vice President - Vedant Nehe </span>
                   <a href="tel:+918468812201" className="hover:text-[#3B82F6] transition-colors">
+                    +91-9767559932
+                  </a>
+                </div>
+                <div>
+                  <span className="text-[#F8FAFC] font-medium">Ruturaj Bhome: </span>
+                  <a href="tel:+917028044996" className="hover:text-[#3B82F6] transition-colors">
                     +91-8468812201
                   </a>
                 </div>
                 <div>
-                  <span className="text-[#F8FAFC] font-medium">Samarth Mahajan (President): </span>
-                  <a href="tel:+917028044996" className="hover:text-[#3B82F6] transition-colors">
-                    +91-7028044996
-                  </a>
-                </div>
-                <div>
-                  <span className="text-[#F8FAFC] font-medium">Pratham Shelke (PR &amp; Branding Secretary): </span>
+                  <span className="text-[#F8FAFC] font-medium">PR - Pratham Shelke </span>
                   <a href="tel:+918767852276" className="hover:text-[#3B82F6] transition-colors">
                     +91-8767852276
                   </a>
                 </div>
                 <div>
-                  <span className="text-[#F8FAFC] font-medium">Shreya Ranjan (Technical Secretary): </span>
+                  <span className="text-[#F8FAFC] font-medium">Technical Secretary- Shreya Ranjan </span>
                   <a href="mailto:samir.shreya24@vit.edu" className="hover:text-[#3B82F6] transition-colors">
                     samir.shreya24@vit.edu
                   </a>

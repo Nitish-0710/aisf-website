@@ -79,9 +79,9 @@
   transform: translateY(-3px);
 }
 
-/* Natural Hero Overlay - Black vignette without blue tint */
+/* Natural Hero Overlay - Black vignette with smooth bottom fade */
 .hero-video-overlay {
-  background: linear-gradient(to top, #05070A 0%, rgba(5, 7, 10, 0.65) 50%, rgba(5, 7, 10, 0.25) 100%);
+  background: linear-gradient(to bottom, rgba(5, 7, 10, 0.25) 0%, rgba(5, 7, 10, 0.4) 40%, rgba(5, 7, 10, 0.85) 80%, #05070A 100%);
 }
 
 /* Badge pill */
