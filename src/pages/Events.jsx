@@ -186,8 +186,8 @@ function Events() {
           title="Code Apex 2.0"
           date="16 MAR 2026"
           theme="theme-red"
-          prizePool="₹1,50,000"
-          teamsParticipated="358"
+          prizePool="₹70,000"
+          teamsParticipated="500+"
           benefits={["Goodies & Swags", "Certificate"]}
           eventUrl="https://aisf-vca-2.netlify.app/ "
           openInNewTab={true}
@@ -215,8 +215,8 @@ function Events() {
           title="Code Apex 1.0"
           date="18 SEP 2025"
           theme="theme-blue"
-          prizePool="₹1,00,000"
-          teamsParticipated="256"
+          prizePool="₹50,000"
+          teamsParticipated="250+"
           benefits={["Goodies & Swags", "Certificate"]}
           eventUrl="https://aisf-vit-code-apex.netlify.app/"
           openInNewTab={true}
