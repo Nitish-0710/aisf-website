@@ -266,7 +266,7 @@ function Events() {
             "/images/events/ca-1/VCA1.5.png",
             "/images/events/ca-1/VCA1.6.png",
             "/images/events/ca-1/VCA1.7.png",
-            "/images/events/ca-1/VCA1.8.png",
+            "/images/events/ca-1/VCA1.8.jpeg",
             "/images/events/ca-1/VCA1.9.png",
             "/images/events/ca-1/VCA1.10.png",
           ]}

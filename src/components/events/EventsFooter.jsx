@@ -108,7 +108,11 @@ function Footer() {
               </p>
 
               <p>
-                <b>Vedant Nehe (Vice-President):</b> +91-9767559932
+                <b>Ruturaj Bhome (Vice-President):</b> +91 84680 12201
+              </p>
+
+              <p>
+                <b>Aryan Deshpande (General Secretary):</b> +91 98221 44550
               </p>
 
               <p>
@@ -117,7 +121,9 @@ function Footer() {
 
               <p>
                 <b>Shreya Ranjan (Technical Secretary):</b>{" "}
-                samir.shreya24@vit.edu
+                <a href="mailto:samir.shreya24@vit.edu">
+                  <b>samir.shreya24@vit.edu</b>
+                </a>
               </p>
             </div>
           </div>

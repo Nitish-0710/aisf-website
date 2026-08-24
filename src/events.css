@@ -1700,3 +1700,85 @@ html {
 .event-button span {
   font-size: 14px;
 }
+
+
+
+
+
+
+/* =========================================================
+   HERO FLOATING IMAGE ANIMATION - FINAL FIX
+========================================================= */
+
+.hero-floating-image {
+  overflow: visible;
+  animation: heroImageFloat 5s ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+
+  will-change: transform;
+}
+
+.hero-floating-image-inner {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  background: #05070b;
+
+  
+}
+
+.hero-floating-image-inner img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+@keyframes heroImageFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(2deg);
+  }
+}
+
+@media (min-width: 851px) {
+  .hero-img-1 {
+    left: 7%;
+    top: 24%;
+  }
+
+  .hero-img-2 {
+    right: 7%;
+    top: 22%;
+  }
+
+  .hero-img-3 {
+    right: 15%;
+    bottom: 12%;
+  }
+}
+
+.footer-people p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.footer-people p a {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+.footer-people p a b {
+  font-size: inherit;
+}
