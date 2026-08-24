@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AISF — Artificial Intelligence Student Forum · VIT Pune</title>
+  <meta name="description" content="AISF — the Artificial Intelligence Student Forum at Vishwakarma Institute of Technology, Pune. Research, workshops, hackathons and the visionary team behind them.">
+  <meta name="keywords" content="AISF, VIT Pune, Artificial Intelligence Student Forum, CODE APEX, AI Club, Machine Learning, Deep Learning">
+
+  <!-- OpenGraph Meta -->
+  <meta property="og:title" content="AISF — Artificial Intelligence Student Forum · VIT Pune">
+  <meta property="og:description" content="Fostering innovation, learning and collaboration in AI and technology at Vishwakarma Institute of Technology, Pune.">
+  <meta property="og:image" content="assets/aisf_team_group.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/aisf_icon.svg">
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Core Theme Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <img src="assets/aisf_icon.svg" class="pl-mark" alt="AISF Preloader Mark">
+    <div class="pl-count" id="plCount">INITIALIZING_AISF · 0%</div>
+    <div class="pl-bar"><span id="plBar"></span></div>
+  </div>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
+    <a href="#home" class="is-active">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#faculty">Faculty</a>
+    <a href="team.html">Team Directory</a>
+    <a href="#events">Events</a>
+    <a href="#projects">AI Projects</a>
+    <a href="#contact">Contact Us</a>
+  </div>
+
+  <!-- Floating Pill Taskbar Navigation (Matching Reference Image 3) -->
+  <header class="nav" id="siteNav">
+    <div class="nav__inner">
+      <a href="#home" class="nav__logo magnetic" aria-label="AISF Home">
+        <img src="assets/aisf_logo_transparent.png" alt="AISF Logo" class="nav__logo-img">
+      </a>
+
+      <nav class="nav__links">
+        <a href="#home" class="is-active">Home</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#faculty">Faculty</a>
+        <a href="team.html">Team</a>
+        <a href="#events">Events</a>
+      </nav>
+
+      <div class="nav__right">
+        <button class="nav__audio-btn magnetic" id="audioToggleBtn" title="Toggle Futuristic Sound FX" aria-label="Toggle Sound FX">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+        <a href="#contact" class="nav__pill-cta magnetic">Contact Us <span class="nav__pill-arrow">→</span></a>
+        <button class="nav__burger" id="burgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section with Interactive Neural Canvas -->
+    <section class="hero" id="home">
+      <canvas id="neuralCanvas"></canvas>
+      
+      <div class="hero__content">
+        <p class="eyebrow" data-reveal>Vishwakarma Institute of Technology · Pune</p>
+        
+        <h1 class="hero__title">
+          <span class="line"><span data-reveal-text>ARTIFICIAL</span></span>
+          <span class="line glitch"><span data-reveal-text>INTELLIGENCE</span></span>
+          <span class="line"><span data-reveal-text>STUDENT FORUM</span></span>
+        </h1>
+
+        <p class="hero__sub" data-reveal>
+          Fostering innovation, learning and collaboration in AI and technology — a forum of students who'd rather build something than just talk about it.
+        </p>
+
+        <div class="hero__cta" data-reveal>
+          <a href="team.html" class="btn btn--primary magnetic">Meet the Team →</a>
+          <a href="#events" class="btn btn--ghost magnetic">Code Apex 2.0 →</a>
+          <a href="#faculty" class="btn btn--circuit magnetic">Faculty Mentors</a>
+        </div>
+
+        <div class="hero__stats" data-reveal>
+          <div class="hero__stat-item">
+            <div class="hero__stat-num" data-count="500" data-suffix="+">500<span>+</span></div>
+            <div class="hero__stat-label">Active Members</div>
+          </div>
+          <div class="hero__stat-item">
+            <div class="hero__stat-num" data-count="35" data-suffix="+">35<span>+</span></div>
+            <div class="hero__stat-label">Workshops &amp; Sprints</div>
+          </div>
+          <div class="hero__stat-item">
+            <div class="hero__stat-num" data-count="100" data-suffix="K+">100<span>K+</span></div>
+            <div class="hero__stat-label">Prize Pool &amp; Grants</div>
+          </div>
+          <div class="hero__stat-item">
+            <div class="hero__stat-num" data-count="20" data-suffix="+">20<span>+</span></div>
+            <div class="hero__stat-label">AI Models Deployed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll">
+        <div class="line-anim"><span></span></div>
+        Scroll
+      </div>
+    </section>
+
+    <!-- Infinite Marquee Ticker -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__item"><span class="marquee__dot"></span> ARTIFICIAL INTELLIGENCE</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> CODE APEX 2.0</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> DEEP NEURAL NETWORKS</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> COMPUTER VISION</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> GENERATIVE AI &amp; LLMS</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> VIT PUNE EXCELLENCE</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> OPEN SOURCE RESEARCH</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> NATIONAL HACKATHONS</div>
+        <!-- Duplicated track for seamless loop -->
+        <div class="marquee__item"><span class="marquee__dot"></span> ARTIFICIAL INTELLIGENCE</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> CODE APEX 2.0</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> DEEP NEURAL NETWORKS</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> COMPUTER VISION</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> GENERATIVE AI &amp; LLMS</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> VIT PUNE EXCELLENCE</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> OPEN SOURCE RESEARCH</div>
+        <div class="marquee__item"><span class="marquee__dot"></span> NATIONAL HACKATHONS</div>
+      </div>
+    </section>
+
+    <!-- What We Do / Focus Bento Grid (With Image 4 Card Hover Effects) -->
+    <section class="section section--tight about" id="about">
+      <div class="wrap">
+        <div class="about__top">
+          <div>
+            <p class="eyebrow" data-reveal>// What We Do</p>
+            <h2 data-reveal>One forum. Every corner of applied AI.</h2>
+          </div>
+          <p data-reveal>
+            AISF exists to close the gap between the AI curriculum and what it actually takes to ship something real — through hands-on projects, focused workshops and a peer group that pushes each other forward.
+          </p>
+        </div>
+
+        <div class="focus-grid">
+          <!-- Card 1: Open Collaboration (Matching Reference Image 4) -->
+          <div class="focus-card hover-glow-card" data-reveal>
+            <div class="focus-card__header-icon">
+              <span class="fc-glow-icon"><i class="fa-solid fa-fire"></i></span>
+              <span class="fc-index">/ 01</span>
+            </div>
+            <h3>Open Collaboration</h3>
+            <p>Cross-functional teams of developers, designers, and project leads working together on open source ideas and real-world neural pipelines.</p>
+          </div>
+
+          <!-- Card 2: Career & Mentorship (Matching Reference Image 4) -->
+          <div class="focus-card hover-glow-card" data-reveal>
+            <div class="focus-card__header-icon">
+              <span class="fc-glow-icon"><i class="fa-solid fa-compass"></i></span>
+              <span class="fc-index">/ 02</span>
+            </div>
+            <h3>Career &amp; Mentorship</h3>
+            <p>Direct access to alumni in top tech companies, mock technical interviews, AI research paper reviews, and personalized portfolio coaching.</p>
+          </div>
+
+          <div class="focus-card hover-glow-card" data-reveal>
+            <div class="focus-card__header-icon">
+              <span class="fc-glow-icon"><i class="fa-solid fa-microchip"></i></span>
+              <span class="fc-index">/ 03</span>
+            </div>
+            <h3>Research &amp; Sprints</h3>
+            <p>Specialized student teams working on deep learning, computer vision, multimodal LLMs, and autonomous systems from first principles.</p>
+          </div>
+
+          <div class="focus-card hover-glow-card" data-reveal>
+            <div class="focus-card__header-icon">
+              <span class="fc-glow-icon"><i class="fa-solid fa-trophy"></i></span>
+              <span class="fc-index">/ 04</span>
+            </div>
+            <h3>Flagship Hackathons</h3>
+            <p>Led by Code Apex 2.0, our nationwide 36-hour sprint where ambitious ideas transform into functioning AI prototypes under real pressure.</p>
+          </div>
+
+          <div class="focus-card hover-glow-card" data-reveal>
+            <div class="focus-card__header-icon">
+              <span class="fc-glow-icon"><i class="fa-solid fa-laptop-code"></i></span>
+              <span class="fc-index">/ 05</span>
+            </div>
+            <h3>Workshops &amp; Bootcamps</h3>
+            <p>Hands-on sessions taking members from theoretical equations to deployable neural architectures, guided by seniors and industry leaders.</p>
+          </div>
+
+          <div class="focus-card hover-glow-card" data-reveal>
+            <div class="focus-card__header-icon">
+              <span class="fc-glow-icon"><i class="fa-solid fa-code-fork"></i></span>
+              <span class="fc-index">/ 06</span>
+            </div>
+            <h3>Open-Source Builds</h3>
+            <p>Production-grade tools and shared repositories maintained together by the forum, engineered to establish VIT Pune as an AI powerhouse.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase Stage Photo / Gallery -->
+    <section class="showcase" id="gallery">
+      <div class="showcase__frame">
+        <div class="showcase__clip" data-photo-clip>
+          <img src="assets/aisf_team_group.jpg" alt="The AISF core team and members gathered at Vishwakarma Institute of Technology, Pune" loading="lazy">
+        </div>
+        <div class="showcase__caption">
+          <strong>One Forum. One Vision.</strong>
+          <span>AISF · VIT Pune Campus Gallery</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faculty Guidance & Leadership Section -->
+    <section class="section faculty" id="faculty">
+      <div class="wrap">
+        <div class="faculty__top-grid">
+          <div>
+            <p class="eyebrow" data-reveal>// Faculty Guidance</p>
+            <h2 data-reveal>Guided by the department, run by the students.</h2>
+            <p data-reveal>
+              Every workshop, project and hackathon AISF runs happens under the mentorship of our distinguished faculty advisors at Vishwakarma Institute of Technology, Pune. Their guidance keeps our ambition grounded and our execution sharp.
+            </p>
+          </div>
+          <div class="faculty__badge" data-reveal>
+            <span>Faculty<br>Mentorship<br>VIT · Pune</span>
+          </div>
+        </div>
+
+        <div class="faculty__cards-grid">
+          <!-- Faculty Card 1 -->
+          <div class="faculty-card hover-glow-card" data-reveal>
+            <div class="faculty-card__header">
+              <img src="assets/faculty_mentor_1.jpg" alt="Dr. Nilesh Sable" class="faculty-card__avatar" onerror="this.src='assets/hero_neural_core.jpg'">
+              <div class="faculty-card__meta">
+                <h3>Dr. Nilesh Sable</h3>
+                <div class="faculty-card__role">HOD &amp; Chief Faculty Advisor</div>
+                <div class="faculty-card__dept">Dept. of CSE (AI) · VIT Pune</div>
+              </div>
+            </div>
+            <p class="faculty-card__quote">
+              "AISF empowers students to transition from core computational theory to scalable, real-world artificial intelligence engineering."
+            </p>
+            <div class="faculty-card__tags">
+              <span class="faculty-card__tag">Machine Learning</span>
+              <span class="faculty-card__tag">Cognitive Computing</span>
+              <span class="faculty-card__tag">IoT &amp; Security</span>
+            </div>
+          </div>
+
+          <!-- Faculty Card 2 -->
+          <div class="faculty-card hover-glow-card" data-reveal>
+            <div class="faculty-card__header">
+              <img src="assets/faculty_mentor_2.jpg" alt="Prof. Roshani Pawar" class="faculty-card__avatar" onerror="this.src='assets/hero_neural_core.jpg'">
+              <div class="faculty-card__meta">
+                <h3>Prof. Roshani Pawar</h3>
+                <div class="faculty-card__role">Faculty Coordinator &amp; Mentor</div>
+                <div class="faculty-card__dept">Dept. of CSE (AI) · VIT Pune</div>
+              </div>
+            </div>
+            <p class="faculty-card__quote">
+              "Fostering student innovation through competitive hackathons, project-based engineering, and deep industry-aligned mentorship."
+            </p>
+            <div class="faculty-card__tags">
+              <span class="faculty-card__tag">Data Mining</span>
+              <span class="faculty-card__tag">Applied AI</span>
+              <span class="faculty-card__tag">Hackathon Architecture</span>
+            </div>
+          </div>
+
+          <!-- Faculty Card 3 -->
+          <div class="faculty-card hover-glow-card" data-reveal>
+            <div class="faculty-card__header">
+              <img src="assets/faculty_mentor_3.jpg" alt="Prof. Sneha Satpute" class="faculty-card__avatar" onerror="this.src='assets/hero_neural_core.jpg'">
+              <div class="faculty-card__meta">
+                <h3>Prof. Sneha Satpute</h3>
+                <div class="faculty-card__role">Faculty Advisor &amp; Coordinator</div>
+                <div class="faculty-card__dept">Dept. of CSE (AI) · VIT Pune</div>
+              </div>
+            </div>
+            <p class="faculty-card__quote">
+              "Inspiring future AI researchers and software architects to build ethical, robust, and transformative technologies."
+            </p>
+            <div class="faculty-card__tags">
+              <span class="faculty-card__tag">Deep Learning</span>
+              <span class="faculty-card__tag">Cloud Computing</span>
+              <span class="faculty-card__tag">Student Research</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership Team / Representative Section (Matching Reference Image 2) -->
+    <section class="section team" id="team">
+      <div class="team__circuit-overlay"></div>
+      
+      <div class="wrap">
+        <div class="team__header-center" data-reveal>
+          <p class="eyebrow eyebrow--center">// Representative Body</p>
+          <h2 class="leadership-title">Leadership Team</h2>
+          <p class="team__subtitle">The visionary core team steering AISF's research pipelines, national hackathons, and student initiatives at Vishwakarma Institute of Technology.</p>
+        </div>
+
+        <!-- Filter Tabs / Mode Switch -->
+        <div class="team__filters" data-reveal>
+          <button class="team__filter-btn is-active" data-filter="all">All Members</button>
+          <button class="team__filter-btn" data-filter="leadership">Leadership Team</button>
+          <button class="team__filter-btn" data-filter="faculty">Faculty Coordinators</button>
+          <button class="team__filter-btn" data-filter="tech">Technical &amp; AI</button>
+          <button class="team__filter-btn" data-filter="events">Hackathons &amp; Events</button>
+          <button class="team__filter-btn" data-filter="pr-branding">PR &amp; Branding</button>
+          <button class="team__filter-btn" data-filter="design">Design &amp; Creative</button>
+        </div>
+
+        <!-- Dynamic Team Grid (Matching Layout in Image 2) -->
+        <div class="team__grid" id="teamGrid">
+          <!-- Dynamically rendered via main.js -->
+        </div>
+
+        <div style="text-align: center; margin-top: 48px;" data-reveal>
+          <a href="team.html" class="btn btn--primary magnetic">
+            Explore Dedicated Team Page &amp; Full Directory →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flagship Event (Code Apex 2.0) -->
+    <section class="section events" id="events">
+      <div class="wrap">
+        <div class="events__inner">
+          <p class="eyebrow" data-reveal>// Flagship Event</p>
+          <div class="events__card" data-reveal>
+            <div class="events__top">
+              <h2>Code Apex 2.0</h2>
+              <span class="events__tag">National Hackathon</span>
+            </div>
+            <p>
+              Our flagship hackathon brings builders, thinkers and first-time coders together for a 36-hour sprint of ideation, prototyping and pure momentum — a stretch of time where AI ideas turn into working products.
+            </p>
+            <div class="events__pills">
+              <span>Open Innovation Tracks</span>
+              <span>Hands-on Building</span>
+              <span>Live Industry Mentorship</span>
+              <span><strong>Prize Pool: ₹1,00,000+</strong></span>
+              <span>Demo &amp; Judging</span>
+            </div>
+            <div class="events__actions">
+              <a href="#contact" class="btn btn--primary magnetic">Register for Code Apex 2.0</a>
+              <a href="#contact" class="btn btn--ghost magnetic">Download Rulebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Projects / Innovation Lab -->
+    <section class="section section--tight projects" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal>// Innovation Lab</p>
+          <h2 data-reveal>Built by AISF Developers</h2>
+          <p data-reveal>Explore cutting-edge artificial intelligence projects developed by our student researchers and faculty mentors at VIT Pune.</p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card" data-reveal>
+            <span class="project-card__type">Computer Vision · Real-Time</span>
+            <h3>Autonomous Drone Vision</h3>
+            <p>Custom YOLOv8-based edge detection system for real-time obstacle navigation and aerial inspection with sub-15ms inference latency.</p>
+            <div class="project-card__stack">
+              <span class="project-card__tag">PyTorch</span>
+              <span class="project-card__tag">TensorRT</span>
+              <span class="project-card__tag">OpenCV</span>
+              <span class="project-card__tag">ROS2</span>
+            </div>
+          </div>
+
+          <div class="project-card" data-reveal>
+            <span class="project-card__type">Generative AI · LLM Agents</span>
+            <h3>Campus AI Knowledge Assistant</h3>
+            <p>Retrieval-augmented generation (RAG) conversational agent indexing college syllabi, exam schedules, and academic research papers.</p>
+            <div class="project-card__stack">
+              <span class="project-card__tag">LangChain</span>
+              <span class="project-card__tag">ChromaDB</span>
+              <span class="project-card__tag">Llama-3</span>
+              <span class="project-card__tag">FastAPI</span>
+            </div>
+          </div>
+
+          <div class="project-card" data-reveal>
+            <span class="project-card__type">MedTech · Deep Learning</span>
+            <h3>Diagnostic Medical Classifier</h3>
+            <p>Multi-modal vision transformer model for automated radiology scan analysis with explainable Grad-CAM heatmaps for clinicians.</p>
+            <div class="project-card__stack">
+              <span class="project-card__tag">Vision Transformers</span>
+              <span class="project-card__tag">Keras</span>
+              <span class="project-card__tag">Grad-CAM</span>
+              <span class="project-card__tag">DICOM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN US / BUILD WITH US Section (Matching Reference Image 2) -->
+    <section class="section join-us" id="join">
+      <div class="join-us__inner">
+        <p class="eyebrow eyebrow--center" data-reveal>// Join Us</p>
+        <h2 class="join-us__headline" data-reveal>BUILD<br>WITH US.</h2>
+        <p class="join-us__sub" data-reveal>You don't need to know everything about AI. You just need to be willing to learn, experiment, collaborate and build.</p>
+        <a href="https://instagram.com/aisf.vit" target="_blank" rel="noopener" class="join-us__cta" data-reveal>
+          JOIN AISF ON INSTAGRAM ↗
+        </a>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ==========================================================================
+       FOOTER (Exact Match with Reference & Requested Theme)
+       ========================================================================== -->
+  <footer class="footer" id="contact">
+    <div class="footer__dots" id="footerDots"></div>
+    
+    <div class="wrap">
+      <div class="footer__grid">
+        <!-- Column 1: AISF Brand, Tagline, & Embedded Google Map -->
+        <div data-reveal>
+          <div class="footer__logo">
+            <img src="assets/aisf_logo_transparent.png" alt="AISF - Artificial Intelligence Student Forum" class="footer__logo-img">
+          </div>
+          
+          <p class="footer__tagline">Fostering innovation, learning, and collaboration in AI and technology at Vishwakarma Institute of Technology, Pune.</p>
+          
+          <div class="footer__map">
+            <a class="footer__map-link" href="https://www.google.com/maps/search/?api=1&query=Vishwakarma+Institute+of+Technology+Pune" target="_blank" rel="noopener">Open in Maps ↗</a>
+            <iframe src="https://www.google.com/maps?q=Vishwakarma+Institute+of+Technology,+Bibwewadi,+Pune&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="AISF VIT Pune location"></iframe>
+          </div>
+        </div>
+
+        <!-- Column 2: Connect with us (Glitch Heading & Social Glow Links) -->
+        <div data-reveal>
+          <h3 class="glitch-heading" data-text="Connect with us">Connect with us</h3>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/csai_aisf" target="_blank" rel="noopener" aria-label="Instagram" title="AISF Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/artificial-intelligence-student-forum-aisf" target="_blank" rel="noopener" aria-label="LinkedIn" title="AISF LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7.5" y1="10" x2="7.5" y2="17"/><circle cx="7.5" cy="6.8" r="1"/><path d="M11.5 17v-4.2c0-1.6 1-2.6 2.4-2.6 1.3 0 2.1 1 2.1 2.6V17"/></svg>
+            </a>
+            <a href="mailto:aisf@vit.edu" class="footer__mail-btn" aria-label="Email AISF" title="AISF Official Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 3: Contact & Direct Representatives -->
+        <div data-reveal>
+          <h3 class="glitch-heading" data-text="Contact">Contact</h3>
+          
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.6 7-11.5A7 7 0 0 0 5 9.5C5 14.4 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+            <span>Building 3, VIT Bibwewadi, Pune, Maharashtra, India</span>
+          </div>
+          
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <a href="mailto:aisf@vit.edu" class="footer__email-text-link">aisf@vit.edu</a>
+          </div>
+
+          <div class="footer__people">
+            <div class="footer__person">
+              <b>Samarth Mahajan</b>
+              <span>President</span>
+              <a href="tel:+917028044996">+91 70280 44996</a>
+            </div>
+            <div class="footer__person">
+              <b>Vedant Nehe</b>
+              <span>Vice President</span>
+              <a href="tel:+919767559932">+91 97675 59932</a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer__bottom">
+        <span>© 2025 AISF VIT Pune. All rights reserved.</span>
+        <span class="footer__badge">Code Apex 2.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Member Detail Modal Dialog -->
+  <div class="modal-overlay" id="memberModalOverlay">
+    <div class="modal-box">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-header">
+        <img src="assets/hero_neural_core.jpg" alt="Member Avatar" class="modal-avatar" id="modalAvatar">
+        <div>
+          <h3 class="modal-name" id="modalName">Member Name</h3>
+          <div class="modal-role" id="modalRole">Position</div>
+          <div style="font-size: 12px; color: var(--steel-dim); margin-top: 2px;">AISF · VIT Pune</div>
+        </div>
+      </div>
+
+      <p class="modal-bio" id="modalBio">Member bio description...</p>
+
+      <div class="modal-skills-title">Core Competencies &amp; Skills</div>
+      <div class="modal-skills" id="modalSkills"></div>
+
+      <div class="modal-contacts">
+        <div>Phone: <a href="#" id="modalPhoneLink"><span id="modalPhone"></span></a></div>
+        <div>Email: <a href="#" id="modalEmailLink"><span id="modalEmail"></span></a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core JavaScript Logic -->
+  <script src="js/main.js"></script>
+</body>
+</html>
