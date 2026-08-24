@@ -9,7 +9,7 @@ function EventHero() {
 
     const updateProgress = () => {
       const value = Math.min(
-        Math.max(window.scrollY / (heroHeight ), 0),
+        Math.max(window.scrollY / (heroHeight), 0),
         1
       );
       setProgress(value);
@@ -31,26 +31,38 @@ function EventHero() {
   }, []);
 
   const letters = [
-    { char: "E", x: -260, y: -120, rotate: -18 },
-    { char: "V", x: -130, y: 90, rotate: -10 },
-    { char: "E", x: 0, y: -150, rotate: 0 },
-    { char: "N", x: 130, y: 100, rotate: 10 },
-    { char: "T", x: 270, y: -100, rotate: 18 },
-    { char: "S", x: 270, y: -100, rotate: 18 },
+    { char: "E", x: -300, y: -150, rotate: -20 },
+    { char: "V", x: -150, y: 130, rotate: -12 },
+    { char: "E", x: -20, y: -180, rotate: -5 },
+    { char: "N", x: 150, y: 130, rotate: 12 },
+    { char: "T", x: 300, y: -120, rotate: 20 },
+    { char: "S", x: 430, y: 90, rotate: 28 },
   ];
 
   const images = [
     {
       src: "/images/events/ca-1/VCA1.1.jpeg",
       className: "hero-img-1",
+      x: -220,
+      y: -180,
+      rotate: -18,
+      delay: "0s",
     },
     {
-      src: "/images/events/ca-1/VCA1.2.jpeg",
+      src: "/images/events/ca-1/VCA1.3.jpeg",
       className: "hero-img-2",
+      x: 230,
+      y: -170,
+      rotate: 20,
+      delay: "-1.2s",
     },
     {
       src: "/images/events/ca-2/VCA2.1.jpeg",
       className: "hero-img-3",
+      x: 260,
+      y: 180,
+      rotate: -16,
+      delay: "-2.4s",
     },
   ];
 
@@ -77,7 +89,7 @@ function EventHero() {
                     )
                     rotate(${letter.rotate * multiplier}deg)
                   `,
-                  opacity: 1 - progress ,
+                  opacity: 1 - progress,
                 }}
               >
                 {letter.char}
@@ -97,18 +109,39 @@ function EventHero() {
       </div>
 
       <div className="hero-images">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`hero-floating-image ${image.className}`}
-            style={{
-              transform: `translateY(${-progress * (100 + index * 30)}px)
-                          rotate(${index % 2 === 0 ? -6 : 6}deg)`,
-            }}
-          >
-            <img src={image.src} alt="AISF event" />
-          </div>
-        ))}
+        {images.map((image, index) => {
+          const spreadMultiplier =
+            progress * (0.85 + index * 0.12);
+
+          return (
+            <div
+              key={index}
+              className={`hero-floating-image ${image.className}`}
+              style={{
+                transform: `
+      translate3d(
+        ${image.x * spreadMultiplier}px,
+        ${image.y * spreadMultiplier}px,
+        0
+      )
+      rotate(
+        ${image.rotate * spreadMultiplier}deg
+      )
+    `,
+                opacity: 1 - progress * 0.75,
+              }}
+            >
+              <div
+                className="hero-floating-image-inner"
+                style={{
+                  "--float-delay": image.delay,
+                }}
+              >
+                <img src={image.src} alt="AISF event" />
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
