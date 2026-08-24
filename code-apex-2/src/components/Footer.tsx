@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
 
 import { FiMail } from "react-icons/fi";
+=======
+import { FiMail } from "react-icons/fi";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
+>>>>>>> f8b767d47f04bf18ae22b2196a5700e11bb2bce2
 
 function Footer() {
   return (
@@ -12,7 +17,10 @@ function Footer() {
 
       <div className="footer-wrap">
         <div className="footer-grid">
+<<<<<<< HEAD
 
+=======
+>>>>>>> f8b767d47f04bf18ae22b2196a5700e11bb2bce2
           {/* BRAND */}
           <div className="footer-brand">
             <div className="footer-logo">
@@ -64,7 +72,11 @@ function Footer() {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
+<<<<<<< HEAD
                 <FaLinkedinIn />
+=======
+                <FaLinkedin />
+>>>>>>> f8b767d47f04bf18ae22b2196a5700e11bb2bce2
               </a>
 
               <a
@@ -119,7 +131,10 @@ function Footer() {
               </p>
             </div>
           </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> f8b767d47f04bf18ae22b2196a5700e11bb2bce2
         </div>
 
         {/* BOTTOM */}
