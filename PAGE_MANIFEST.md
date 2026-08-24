@@ -83,7 +83,18 @@ The official events showcase for Code Apex 2.0 and Code Apex 1.0 with interactiv
 
 ---
 
-## ⚙️ 4. SHARED CORE & CONFIGURATION FILES (Needed on ALL branches)
+## ⚡ 4. CODE APEX 3.0 DOOMSDAY PAGE (`/vca3` & `vca3-page` branch)
+
+The official Doctor Doom / Marvel Doomsday themed teaser page for Code Apex 3.0 with 3D Emerald Incursion Singularity canvas (`#00643D`), multiversal cosmic dust particles, and coming soon announcements.
+
+### Source Code & Components
+- `src/pages/Vca3.jsx` *(Main VCA 3.0 Doomsday teaser page)*
+- `src/components/vca3/DoomsdayGlobe.jsx` *(Three.js 3D Emerald Incursion Singularity & Cosmic Dust)*
+- `src/vca3.css` *(Doctor Doom Emerald & Incursion styling rules)*
+
+---
+
+## ⚙️ 5. SHARED CORE & CONFIGURATION FILES (Needed on ALL branches)
 
 These files configure Vite, Tailwind CSS, project packages, HTML headers, and the central client-side router.
 
@@ -101,9 +112,10 @@ These files configure Vite, Tailwind CSS, project packages, HTML headers, and th
 
 ## 📌 Summary Mapping Matrix
 
-| Page | Branch | Key 3D Background Component | Dedicated CSS | Asset Folder |
+| Page | Branch / Route | Key 3D Background Component | Dedicated CSS | Asset Folder |
 | :--- | :--- | :--- | :--- | :--- |
-| **Home Page** | `main` / `home-page` | `src/components/NeuralGlobeBackground.jsx` (Constant `#00e5ff`) | `src/index.css` | `src/assets/` & `public/` |
-| **Team Directory** | `team-page` | `src/components/NeuralGlobeBackground.jsx` (Constant `#00e5ff`) | `src/team.css` | `public/assets/team/` |
-| **Events Page** | `events-page` | `src/components/events/EventBackgroundModel.jsx` (Dynamic `#00e5ff` $\rightarrow$ `#ff3344` $\rightarrow$ `#2f7dff`) | `src/events.css` | `public/images/` |
+| **Home Page** | `main` / `/` | `src/components/NeuralGlobeBackground.jsx` (Constant `#00e5ff`) | `src/index.css` | `src/assets/` & `public/` |
+| **Team Directory** | `team-page` / `/team` | `src/components/NeuralGlobeBackground.jsx` (Constant `#00e5ff`) | `src/team.css` | `public/assets/team/` |
+| **Events Page** | `events-page` / `/events` | `src/components/events/EventBackgroundModel.jsx` (Dynamic `#00e5ff` $\rightarrow$ `#ff3344` $\rightarrow$ `#2f7dff`) | `src/events.css` | `public/images/` |
+| **Code Apex 3.0** | `vca3-page` / `/vca3` | `src/components/vca3/DoomsdayGlobe.jsx` (Emerald `#00643D` & Cosmic Dust) | `src/vca3.css` | `src/assets/` |
 | **Shared Core** | *All Branches* | `src/main.jsx`, `index.html`, `vite.config.js` | — | `public/AISF_Logo_NoBG.png` |

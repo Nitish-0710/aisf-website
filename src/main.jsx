@@ -5,6 +5,7 @@ import App from './App.jsx'
 
 const Events = lazy(() => import('./pages/Events.jsx'));
 const Team = lazy(() => import('./pages/Team.jsx'));
+const Vca3 = lazy(() => import('./pages/Vca3.jsx'));
 
 function PageLoader() {
   return (
@@ -42,6 +43,14 @@ function Root() {
     return (
       <Suspense fallback={<PageLoader />}>
         <Team />
+      </Suspense>
+    );
+  }
+
+  if (currentPath.startsWith('/vca3') || currentPath.startsWith('/vca-3')) {
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <Vca3 />
       </Suspense>
     );
   }
