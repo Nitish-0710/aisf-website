@@ -1,0 +1,86 @@
+/* =========================================================
+   VCA 3 — MARVEL DOOMSDAY THEME STYLESHEET
+   Doctor Doom / Avengers: Doomsday / Multiverse Incursions
+   Signature Green: #00643D
+   ========================================================= */
+
+:root {
+  --doom-bg-void: #030805;
+  --doom-bg-card: rgba(4, 16, 10, 0.85);
+  --doom-bg-card-hover: rgba(6, 24, 15, 0.95);
+  --doom-emerald: #00643D;
+  --doom-emerald-glow: rgba(0, 100, 61, 0.55);
+  --doom-emerald-bright: #008751;
+  --doom-forest: #00643D;
+  --doom-gold: #fbbf24;
+  --doom-incursion: #a855f7;
+  --doom-incursion-glow: rgba(168, 85, 247, 0.4);
+  --doom-titanium: #0f172a;
+  --doom-border: rgba(0, 100, 61, 0.35);
+  --doom-border-hover: rgba(0, 100, 61, 0.85);
+}
+
+.vca3-page {
+  background-color: var(--doom-bg-void);
+  color: #f8fafc;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.vca3-page ::selection {
+  background-color: #00643D;
+  color: #ffffff;
+}
+
+/* Multiversal Cosmic Grid & Scanline */
+.doomsday-scanlines {
+  background: linear-gradient(
+    rgba(2, 10, 6, 0) 50%, 
+    rgba(0, 0, 0, 0.35) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(0, 100, 61, 0.04),
+    rgba(168, 85, 247, 0.02),
+    rgba(0, 100, 61, 0.04)
+  );
+  background-size: 100% 4px, 8px 100%;
+  pointer-events: none;
+}
+
+/* Doctor Doom Emerald #00643D Glow Utilities */
+.text-glow-emerald {
+  text-shadow: 0 0 10px rgba(0, 100, 61, 0.9), 0 0 25px rgba(0, 100, 61, 0.6);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.8), 0 0 25px rgba(251, 191, 36, 0.4);
+}
+
+.box-glow-emerald {
+  box-shadow: 0 0 25px -5px rgba(0, 100, 61, 0.5), 0 0 1px 1px rgba(0, 100, 61, 0.3);
+}
+
+.box-glow-emerald:hover {
+  box-shadow: 0 0 35px 2px rgba(0, 100, 61, 0.75), 0 0 2px 1px rgba(0, 100, 61, 0.9);
+}
+
+/* Custom Scrollbars */
+.vca3-page ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.vca3-page ::-webkit-scrollbar-track {
+  background: #020805;
+}
+
+.vca3-page ::-webkit-scrollbar-thumb {
+  background: #00643D;
+  border-radius: 3px;
+}
+
+.vca3-page ::-webkit-scrollbar-thumb:hover {
+  background: #008751;
+}
