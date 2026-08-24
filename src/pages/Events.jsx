@@ -18,11 +18,9 @@ function Events() {
     const updateTheme = () => {
       if (!mainRef.current) return;
 
-      const codeApex2 =
-        document.getElementById("code-apex-2");
+      const codeApex2 = document.getElementById("code-apex-2");
 
-      const codeApex1 =
-        document.getElementById("code-apex-1");
+      const codeApex1 = document.getElementById("code-apex-1");
 
       if (!codeApex2 || !codeApex1) {
         rafRef.current = null;
@@ -43,11 +41,9 @@ function Events() {
         real event sections even if page length changes.
       */
 
-      const ca2Top =
-        codeApex2.getBoundingClientRect().top;
+      const ca2Top = codeApex2.getBoundingClientRect().top;
 
-      const ca1Top =
-        codeApex1.getBoundingClientRect().top;
+      const ca1Top = codeApex1.getBoundingClientRect().top;
 
       /*
         -------------------------------------------------------
@@ -88,16 +84,11 @@ function Events() {
         colour jump after the timeline.
       */
 
-      const ca2TransitionStart =
-        viewportHeight * 0.95;
+      const ca2TransitionStart = viewportHeight * 0.95;
 
-      const ca2TransitionEnd =
-        viewportHeight * 0.20;
+      const ca2TransitionEnd = viewportHeight * 0.2;
 
-      if (
-        ca2Top < ca2TransitionStart &&
-        ca2Top > ca2TransitionEnd
-      ) {
+      if (ca2Top < ca2TransitionStart && ca2Top > ca2TransitionEnd) {
         const progress =
           (ca2TransitionStart - ca2Top) /
           (ca2TransitionStart - ca2TransitionEnd);
@@ -124,19 +115,16 @@ function Events() {
         back to blue.
       */
 
-      const ca1TransitionStart =
-        viewportHeight * 0.95;
+      const ca1TransitionStart = viewportHeight * 0.95;
 
-      const ca1TransitionEnd =
-        viewportHeight * 0.20;
+      const ca1TransitionEnd = viewportHeight * 0.2;
 
       if (ca1Top < ca1TransitionStart) {
         const progress =
           (ca1TransitionStart - ca1Top) /
           (ca1TransitionStart - ca1TransitionEnd);
 
-        themeProgress =
-          1 - smoothStep(progress);
+        themeProgress = 1 - smoothStep(progress);
       }
 
       /*
@@ -145,44 +133,28 @@ function Events() {
         -------------------------------------------------------
       */
 
-      mainRef.current.style.setProperty(
-        "--theme-progress",
-        themeProgress
-      );
+      mainRef.current.style.setProperty("--theme-progress", themeProgress);
 
-      mainRef.current.style.setProperty(
-        "--theme-mix",
-        themeProgress
-      );
+      mainRef.current.style.setProperty("--theme-mix", themeProgress);
 
       rafRef.current = null;
     };
 
     const handleScroll = () => {
       if (rafRef.current === null) {
-        rafRef.current =
-          requestAnimationFrame(updateTheme);
+        rafRef.current = requestAnimationFrame(updateTheme);
       }
     };
 
-    window.addEventListener(
-      "scroll",
-      handleScroll,
-      { passive: true }
-    );
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     updateTheme();
 
     return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+      window.removeEventListener("scroll", handleScroll);
 
       if (rafRef.current) {
-        cancelAnimationFrame(
-          rafRef.current
-        );
+        cancelAnimationFrame(rafRef.current);
       }
     };
   }, []);
@@ -213,15 +185,9 @@ function Events() {
           title="Code Apex 2.0"
           date="16 MAR 2026"
           theme="theme-red"
-
           prizePool="₹1,50,000"
           teamsParticipated="358"
-
-          benefits={[
-            "Goodies & Swags",
-            "Certificate",
-          ]}
-
+          benefits={["Goodies & Swags", "Certificate"]}
           eventUrl="https://aisf-vca-2.netlify.app/ "
           openInNewTab={true}
           reverse
@@ -248,14 +214,9 @@ function Events() {
           title="Code Apex 1.0"
           date="18 SEP 2025"
           theme="theme-blue"
-
           prizePool="₹1,00,000"
           teamsParticipated="256"
-          benefits={[
-            "Goodies & Swags",
-            "Certificate",
-          ]}
-
+          benefits={["Goodies & Swags", "Certificate"]}
           eventUrl="https://aisf-vit-code-apex.netlify.app/"
           openInNewTab={true}
           images={[

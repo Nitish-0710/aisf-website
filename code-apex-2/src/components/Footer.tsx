@@ -12,7 +12,6 @@ function Footer() {
 
       <div className="footer-wrap">
         <div className="footer-grid">
-
           {/* BRAND */}
           <div className="footer-brand">
             <div className="footer-logo">
@@ -119,7 +118,6 @@ function Footer() {
               </p>
             </div>
           </div>
-
         </div>
 
         {/* BOTTOM */}
