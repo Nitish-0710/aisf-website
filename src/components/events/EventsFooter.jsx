@@ -58,7 +58,11 @@ function EventsFooter() {
                 LinkedIn
               </a>
 
-              <a href="mailto:aisf@vit.edu">
+              <a
+                href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=aisf@vit.edu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Email
               </a>
             </div>
@@ -72,7 +76,11 @@ function EventsFooter() {
               <p>VIT Bibwewadi, Pune, Maharashtra, India</p>
 
               <p>
-                <a href="mailto:aisf@vit.edu">
+                <a
+                  href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=aisf@vit.edu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   aisf@vit.edu
                 </a>
               </p>
@@ -114,8 +122,12 @@ function EventsFooter() {
               <div>
                 <b>Shreya Ranjan</b>
                 <span>Technical Secretary</span>
-                <a href="mailto:samir.shreya24@vit.edu">
-                  samir.shreya24@vit.edu
+                <a
+                  href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=samir.shreya@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  samir.shreya@gmail.com
                 </a>
               </div>
             </div>

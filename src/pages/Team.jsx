@@ -763,7 +763,9 @@ export default function Team() {
                     <LinkedinIcon size={20} />
                   </a>
                   <a
-                    href="mailto:aisf@vit.edu"
+                    href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=aisf@vit.edu"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label="Email"
                     className="w-12 h-12 rounded-xl glass-card border border-white/10 flex items-center justify-center text-[#94A3B8] hover:text-white hover:border-[#3B82F6]/50 hover:bg-[#2563EB]/15 transition-all duration-200"
                   >
@@ -791,7 +793,9 @@ export default function Team() {
                   <span>VIT Bibwewadi, Pune, Maharashtra, India</span>
                 </a>
                 <a
-                  href="mailto:aisf@vit.edu"
+                  href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=aisf@vit.edu"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-[#3B82F6] transition-colors"
                 >
                   <Mail size={15} className="text-[#3B82F6] shrink-0" />
@@ -827,8 +831,13 @@ export default function Team() {
                 </div>
                 <div>
                   <span className="text-[#F8FAFC] font-medium">Shreya Ranjan (Technical Secretary): </span>
-                  <a href="mailto:samir.shreya24@vit.edu" className="hover:text-[#3B82F6] transition-colors">
-                    samir.shreya24@vit.edu
+                  <a
+                    href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=samir.shreya@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#3B82F6] transition-colors"
+                  >
+                    samir.shreya@gmail.com
                   </a>
                 </div>
               </div>
