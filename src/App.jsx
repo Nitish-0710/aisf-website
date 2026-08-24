@@ -403,9 +403,7 @@ export default function App() {
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="https://aisf-vca-2.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/vca3"
               className="w-full sm:w-auto px-7 py-3.5 rounded-full glass-card text-[#F8FAFC] font-medium text-sm hover:border-white/20 transition-colors duration-200 flex items-center justify-center gap-2 active:scale-95"
             >
               <Sparkles size={15} className="text-[#3B82F6]" />
