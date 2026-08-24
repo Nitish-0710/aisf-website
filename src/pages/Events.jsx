@@ -9,6 +9,7 @@ import { Canvas } from "@react-three/fiber";
 import * as THREE from "three";
 import HoloModel from "../components/events/EventBackgroundModel";
 import "../events.css";
+import Footer from "../components/Footer"; 
 
 function Events() {
   const mainRef = useRef(null);
@@ -235,7 +236,7 @@ function Events() {
         />
       </div>
 
-      <EventsFooter />
+      <Footer />
     </main>
   );
 }
