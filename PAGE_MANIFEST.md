@@ -20,7 +20,7 @@ The official landing page with the 70% dead-centered logo docking animation, bac
 - `src/assets/AISF_GetInvolved.jpeg` *(Get Involved gallery photo 1)*
 - `src/assets/AISF_GetInvolved_2.jpg` *(Get Involved gallery photo 2)*
 - `src/assets/AISF_GetInvolved_3.jpg` *(Get Involved gallery photo 3)*
-- `public/AISF_Logo_NoBG.png` *(Tab Favicon asset)*
+- `public/AISF_Logo_NoBG.png` *(Static favicon/logo URL used by the HTML shell and events footer)*
 - `public/favicon.png` *(Tab Favicon asset)*
 - `public/favicon.svg` *(Fallback icon)*
 - `public/icons.svg` *(Fallback icon)*
@@ -36,22 +36,13 @@ The official directory for the Faculty Advisory Board, Core Executive Board, and
 - `src/components/NeuralGlobeBackground.jsx` *(Shared 3D Neural Fibonacci Sphere with constant `#00e5ff` color)*
 - `src/team.css` *(Scoped styles for cards, search, pills, modals, and typography)*
 
-### Assets (`public/assets/team/`)
-- `public/assets/team/faculty_mentor_1.jpg` *(Prof. Dr. S. K. Deshmukh)*
-- `public/assets/team/faculty_mentor_2.jpg` *(Prof. P. V. Kulkarni)*
-- `public/assets/team/faculty_mentor_3.jpg` *(Prof. R. M. Joshi)*
-- `public/assets/team/lead_samarth.jpg` *(Samarth Mahajan - President)*
-- `public/assets/team/lead_ruturaj.jpg` *(Ruturaj Bhome - Vice President)*
-- `public/assets/team/lead_om.jpg` *(Om Kumar Garg - Chief Advisor)*
-- `public/assets/team/lead_shreya.jpg` *(Shreya Ranjan - Technical Head)*
-- `public/assets/team/lead_pratham.jpg` *(Pratham Shelke - PR & Branding Head)*
-- `public/assets/team/hero_neural_core.jpg` *(Default neural avatar & secretary media)*
-- `public/assets/team/aisf_team_group.jpg` *(Team banner photo)*
-- `public/assets/team/aisf_logo_transparent.png` *(Transparent brand mark)*
-- `public/assets/team/aisf_logo_official.png` *(Official brand badge)*
-- `public/assets/team/aisf_icon.svg` *(Vector emblem)*
-- `public/assets/team/aisf_logo.svg` *(Vector logo)*
-- `public/assets/team/aisf_footer_reference.png` *(Design reference asset)*
+### Assets (`src/assets/team/`)
+- `src/assets/team/ns.jpg` *(Dr. Nilesh Sable)*
+- `src/assets/team/rpp.jpg` *(Prof. Roshani Pawar)*
+- `src/assets/team/jb.jpg` *(Prof. Jayshree Bedade)*
+- `src/assets/team/sm.jpg` *(Samarth Mahajan - President)*
+- `src/assets/team/vn.jpg` *(Vedant Nehe - Vice President)*
+- `src/assets/team/rm.jpg`, `sp.jpg`, `sc.jpg`, `sg.jpg`, `n.jpg`, `sr.jpg`, `ct.jpg`, `pr.jpg`, `Atharva.jpg`, `nitish.jpg`, `riya.jpg`, `Rushi.jpg`, `Soha .jpg`, `pra.jpg`, `rb.jpg`, `Ojas.png`, `p.jpg`, `r.jpg`, `d.jpg`, `vj.jpg` *(Secretary profile photos)*
 
 ---
 
@@ -70,7 +61,6 @@ The official events showcase for Code Apex 2.0 and Code Apex 1.0 with interactiv
 - `src/components/events/EventsFooter.jsx` *(Events dedicated footer)*
 
 ### Assets (`public/images/`)
-- `public/images/aisf-logo.png` *(Events logo asset)*
 - `public/images/events/ca-1/VCA1.1.jpeg` *(Code Apex 1.0 photo 1)*
 - `public/images/events/ca-1/VCA1.2.jpeg` *(Code Apex 1.0 photo 2)*
 - `public/images/events/ca-1/VCA1.3.jpeg` *(Code Apex 1.0 photo 3)*
@@ -114,8 +104,8 @@ These files configure Vite, Tailwind CSS, project packages, HTML headers, and th
 
 | Page | Branch / Route | Key 3D Background Component | Dedicated CSS | Asset Folder |
 | :--- | :--- | :--- | :--- | :--- |
-| **Home Page** | `main` / `/` | `src/components/NeuralGlobeBackground.jsx` (Constant `#00e5ff`) | `src/index.css` | `src/assets/` & `public/` |
-| **Team Directory** | `team-page` / `/team` | `src/components/NeuralGlobeBackground.jsx` (Constant `#00e5ff`) | `src/team.css` | `public/assets/team/` |
+| **Home Page** | `main` / `/` | `src/components/NeuralGlobeBackground.jsx` (Constant `#00e5ff`) | `src/index.css` | `src/assets/` |
+| **Team Directory** | `team-page` / `/team` | `src/components/NeuralGlobeBackground.jsx` (Constant `#00e5ff`) | `src/team.css` | `src/assets/team/` |
 | **Events Page** | `events-page` / `/events` | `src/components/events/EventBackgroundModel.jsx` (Dynamic `#00e5ff` $\rightarrow$ `#ff3344` $\rightarrow$ `#2f7dff`) | `src/events.css` | `public/images/` |
 | **Code Apex 3.0** | `vca3-page` / `/vca3` | `src/components/vca3/DoomsdayGlobe.jsx` (Emerald `#00643D` & Cosmic Dust) | `src/vca3.css` | `src/assets/` |
 | **Shared Core** | *All Branches* | `src/main.jsx`, `index.html`, `vite.config.js` | — | `public/AISF_Logo_NoBG.png` |
