@@ -144,7 +144,7 @@ export const EXECUTIVE_MEMBERS = [
     dept: "Dept. of CS (Artificial Intelligence) · VIT Pune",
     avatar: smImg,
     phone: "+91 70280 44996",
-    email: "aisf@vit.edu",
+    email: "samarth.mahajan241@vit.edu",
     bio:
       "Leading AISF with a clear mission: turn theoretical AI concepts into production-grade systems and foster an elite engineering culture. Overseeing the national hackathon Code Apex 2.0, open-source model releases, and student research cohorts across VIT Pune.",
     skills: [
@@ -167,7 +167,7 @@ export const EXECUTIVE_MEMBERS = [
     dept: "Dept. of CS (Artificial Intelligence) · VIT Pune",
     avatar: vnImg,
     phone: "+91 97675 59932",
-    email: "aisf@vit.edu",
+    email: "vedant.nehe24@vit.edu",
     bio:
       "Driving core club operations, technical sprint coordination, event logistics, and student research cohorts across the Artificial Intelligence Student Forum at Vishwakarma Institute of Technology.",
     skills: [
